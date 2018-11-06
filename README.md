@@ -1,13 +1,18 @@
 # README
+ Ruby version : 2.4.0p0 (2016-12-24 revision 57164)
+ Rails 5.2.1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+List of entities for the project:
 
-Things you may want to cover:
+1) Tests;
+2) Questions;
+3) Answers;
+4) User Role - simple user or admin;
+5) Rules - logical rules;
+6) Results;
 
-* Ruby version
-
-* System dependencies
+<!--  Пока не знаю что тут надо указать..заполнять буду по мере развития
+* System dependencies:
 
 * Configuration
 
@@ -20,5 +25,4 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
-* ...
+ -->
