@@ -3,6 +3,7 @@ class Test < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_many :user_tests, dependent: :destroy
   has_many :users, through: :user_tests
+  # belongs_to :author, class_name: 'User', foreign_key: :author_id
 
   # Создайте метод класса в модели Test, который возвращает отсортированный
   # по убыванию массив названий всех Тестов у которых Категория называется
