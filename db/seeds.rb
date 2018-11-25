@@ -91,7 +91,7 @@
   answers << {body: 'Answer 15.2', question_id: 15}
   Answer.create(answers)
 # 6) user_tests
-  TestsUser.create([{:value=>2, :user_id=>1, :test_id=>1},
+  UserTest.create([{:value=>2, :user_id=>1, :test_id=>1},
                   {:value=>1, :user_id=>1, :test_id=>2},
                   {:value=>3, :user_id=>1, :test_id=>3},
                   {:value=>2, :user_id=>1, :test_id=>4},
