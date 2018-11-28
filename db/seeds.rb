@@ -10,86 +10,83 @@
 # Поэтому тут просто символически заполнено - как болванка для экпериментов.
 
 # 1) users
-  users ||= [{first_name: 'Firstname1', last_name: 'Lastname1', login: 'login1', password: 'password1'}]
-  users << {first_name: 'Firstname2', last_name: 'Lastname2', login: 'login2', password: 'password2'}
-  users << {first_name: 'Firstname3', last_name: 'Lastname3', login: 'login3', password: 'password3'}
-  users << {first_name: 'Firstname4', last_name: 'Lastname4', login: 'login4', password: 'password4'}
-  users << {first_name: 'Firstname5', last_name: 'Lastname5', login: 'login5', password: 'password5'}
-  User.create(users)
+  users = User.create([
+            {first_name: 'Firstname1', last_name: 'Lastname1', login: 'login1', password: 'password1'},
+            {first_name: 'Firstname2', last_name: 'Lastname2', login: 'login2', password: 'password2'},
+            {first_name: 'Firstname3', last_name: 'Lastname3', login: 'login3', password: 'password3'},
+            {first_name: 'Firstname4', last_name: 'Lastname4', login: 'login4', password: 'password4'},
+            {first_name: 'Firstname5', last_name: 'Lastname5', login: 'login5', password: 'password5'}])
 # 2) category
-  categories ||= [{title: 'Category 1'}]
-  categories << {title: 'Category 2'}
-  categories << {title: 'Category 3'}
-  categories << {title: 'Category 4'}
-  categories << {title: 'Category 5'}
-  categories << {title: 'Category 6'}
-  categories << {title: 'Category 7'}
-  Category.create(categories)
+  categories = Category.create([
+                {title: 'Category 1'}, {title: 'Category 2'}, {title: 'Category 3'},
+                {title: 'Category 4'}, {title: 'Category 5'}, {title: 'Category 6'},
+                {title: 'Category 7'}])
 # 3) tests
-  tests ||= [{title: 'Test1',  category_id: 1}]
-  tests << {title: 'Test2',  category_id: 1}
-  tests << {title: 'Test3',  category_id: 1}
-  tests << {title: 'Test4', level: 1, category_id: 2}
-  tests << {title: 'Test5', level: 1, category_id: 2}
-  tests << {title: 'Test6', level: 1, category_id: 3}
-  tests << {title: 'Test7', level: 2, category_id: 4}
-  tests << {title: 'Test8', level: 3, category_id: 4}
-  tests << {title: 'Test9', level: 3, category_id: 5}
-  tests << {title: 'Test10', level: 4, category_id: 5}
-  tests << {title: 'Test11', level: 4, category_id: 6}
-  tests << {title: 'Test12', level: 4, category_id: 7}
-  Test.create(tests)
+  tests = Test.create([
+                {title: 'Test1', category: categories[0]},
+                {title: 'Test2', category: categories[0]},
+                {title: 'Test3', category: categories[1]},
+                {title: 'Test4', level: 1, category: categories[2]},
+                {title: 'Test5', level: 1, category: categories[3]},
+                {title: 'Test6', level: 1, category: categories[4]},
+                {title: 'Test7', level: 2, category: categories[5]},
+                {title: 'Test8', level: 3, category: categories[6]},
+                ])
 # 4) questions
-  questions ||= [{body: 'Question1', test_id: 1}]
-  questions << {body: 'Question2', test_id: 1}
-  questions << {body: 'Question3', test_id: 1}
-  questions << {body: 'Question4', test_id: 1}
-  questions << {body: 'Question5', test_id: 1}
-  questions << {body: 'Question6', test_id: 2}
-  questions << {body: 'Question7', test_id: 2}
-  questions << {body: 'Question8', test_id: 2}
-  questions << {body: 'Question9', test_id: 3}
-  questions << {body: 'Question10', test_id: 3}
-  questions << {body: 'Question11', test_id: 4}
-  questions << {body: 'Question12', test_id: 4}
-  questions << {body: 'Question13', test_id: 5}
-  questions << {body: 'Question14', test_id: 5}
-  questions << {body: 'Question15', test_id: 6}
-  questions << {body: 'Question16', test_id: 7}
-  Question.create(questions)
+  questions = Question.create([
+                              {body: 'Question1', test: tests[0]},
+                              {body: 'Question2', test: tests[0]},
+                              {body: 'Question3', test: tests[1]},
+                              {body: 'Question4', test: tests[1]},
+                              {body: 'Question5', test: tests[2]},
+                              {body: 'Question6', test: tests[2]},
+                              {body: 'Question7', test: tests[3]},
+                              {body: 'Question8', test: tests[3]},
+                              {body: 'Question9', test: tests[4]},
+                              {body: 'Question10', test: tests[4]},
+                              {body: 'Question11', test: tests[5]},
+                              {body: 'Question12', test: tests[5]},
+                              {body: 'Question13', test: tests[6]},
+                              {body: 'Question14', test: tests[6]},
+                              {body: 'Question15', test: tests[7]},
+                              {body: 'Question16', test: tests[7]}
+                              ])
 # 5) answers
-  answers ||= [{body: 'Answer1', question_id: 1}]
-  answers << {body: 'Answer 1.2', question_id: 1}
-  answers << {body: 'Answer 1.1', question_id: 1}
-  answers << {body: 'Answer 2.1', question_id: 2}
-  answers << {body: 'Answer 2.2', question_id: 2}
-  answers << {body: 'Answer 3.1', question_id: 3}
-  answers << {body: 'Answer 3.2', question_id: 3}
-  answers << {body: 'Answer 4.1', question_id: 4}
-  answers << {body: 'Answer 4.2', question_id: 4}
-  answers << {body: 'Answer 5.1', question_id: 5}
-  answers << {body: 'Answer 5.2', question_id: 5}
-  answers << {body: 'Answer 6.1', question_id: 6}
-  answers << {body: 'Answer 6.2', question_id: 6}
-  answers << {body: 'Answer 7.1', question_id: 7}
-  answers << {body: 'Answer 7.2', question_id: 7}
-  answers << {body: 'Answer 8.1', question_id: 8}
-  answers << {body: 'Answer 8.2', question_id: 8}
-  answers << {body: 'Answer 9.1', question_id: 9}
-  answers << {body: 'Answer 9.2', question_id: 9}
-  answers << {body: 'Answer 10.1', question_id: 10}
-  answers << {body: 'Answer 10.2', question_id: 10}
-  answers << {body: 'Answer 11.1', question_id: 11}
-  answers << {body: 'Answer 11.2', question_id: 11}
-  answers << {body: 'Answer 12.1', question_id: 12}
-  answers << {body: 'Answer 12.2', question_id: 12}
-  answers << {body: 'Answer 13.1', question_id: 13}
-  answers << {body: 'Answer 13.2', question_id: 13}
-  answers << {body: 'Answer 14.2', question_id: 14}
-  answers << {body: 'Answer 14.1', question_id: 14}
-  answers << {body: 'Answer 15.1', question_id: 15}
-  answers << {body: 'Answer 15.2', question_id: 15}
-  Answer.create(answers)
+  answers = Answer.create([
+                          {body: 'Answer 1.1', question: questions[0]},
+                          {body: 'Answer 1.2', question: questions[0]},
+                          {body: 'Answer 1.1',  question: questions[1]},
+                          {body: 'Answer 2.1', question: questions[1]},
+                          {body: 'Answer 2.2', question: questions[2]},
+                          {body: 'Answer 3.1', question: questions[2]},
+                          {body: 'Answer 3.2', question: questions[3]},
+                          {body: 'Answer 4.1', question: questions[3]},
+                          {body: 'Answer 4.2', question: questions[4]},
+                          {body: 'Answer 5.1', question: questions[4]},
+                          {body: 'Answer 5.2', question: questions[5]},
+                          {body: 'Answer 6.1', question: questions[5]},
+                          {body: 'Answer 6.2', question: questions[6]},
+                          {body: 'Answer 7.1', question: questions[6]},
+                          {body: 'Answer 7.2', question: questions[7]},
+                          {body: 'Answer 8.1', question: questions[7]},
+                          {body: 'Answer 8.2', question: questions[8]},
+                          {body: 'Answer 9.1', question: questions[8]},
+                          {body: 'Answer 9.2', question: questions[9]},
+                          {body: 'Answer 10.1', question: questions[9]},
+                          {body: 'Answer 10.2', question: questions[9]},
+                          {body: 'Answer 11.1', question: questions[10]},
+                          {body: 'Answer 11.2', question: questions[10]},
+                          {body: 'Answer 12.1', question: questions[11]},
+                          {body: 'Answer 12.2', question: questions[11]},
+                          {body: 'Answer 13.1', question: questions[12]},
+                          {body: 'Answer 13.2', question: questions[12]},
+                          {body: 'Answer 14.2', question: questions[13]},
+                          {body: 'Answer 14.1', question: questions[13]},
+                          {body: 'Answer 15.1', question: questions[14]},
+                          {body: 'Answer 15.2', question: questions[14]},
+                          {body: 'Answer 16.1', question: questions[15]},
+                          {body: 'Answer 16.2', question: questions[15]}
+                          ])
 # 6) user_tests
   UserTest.create([{:value=>2, :user_id=>1, :test_id=>1},
                   {:value=>1, :user_id=>1, :test_id=>2},
