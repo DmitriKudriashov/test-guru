@@ -16,6 +16,11 @@
             {first_name: 'Firstname3', last_name: 'Lastname3', login: 'login3', password: 'password3'},
             {first_name: 'Firstname4', last_name: 'Lastname4', login: 'login4', password: 'password4'},
             {first_name: 'Firstname5', last_name: 'Lastname5', login: 'login5', password: 'password5'}])
+  users.each do |t|
+    t.email = "#{t.first_name}.#{t.last_name}@gmail.com"
+    t.save
+  end
+
 # 2) category
   categories = Category.create([
                 {title: 'Category 1'}, {title: 'Category 2'}, {title: 'Category 3'},
