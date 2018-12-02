@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Test < ApplicationRecord
   belongs_to :category
   has_many :questions, dependent: :destroy
@@ -5,11 +7,21 @@ class Test < ApplicationRecord
   has_many :users, through: :user_tests
   belongs_to :author, class_name: 'User', foreign_key: :author_id
 
-  # Создайте метод класса в модели Test, который возвращает отсортированный
-  # по убыванию массив названий всех Тестов у которых Категория называется
-  # определённым образом (название категории передается в метод в качестве аргумента).
-  def self.list_by_category(category_name)
-    Test.joins('JOIN categories ON categories.id = tests.category_id')
-    .where(categories: {title: category_name}).order(title: :DESC).pluck(:title)
+  validates :title, presence: true,
+                    uniqueness: { scope: :level,
+                    message: 'Title and level must be unique combination' }
+
+  scope :easy, -> { where(level: 0..1) }
+  scope :mid, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+
+  validates :level, numericality: { only_integer: true, greater_than: 0 }
+
+  default_scope { order(title: :desc) }
+  scope :by_category, ->(title)
+    { joins(:category).where(categories: { title: title }) }
+
+  def self.list_by_category(title)
+    by_category(title).pluck(:title)
   end
 end
