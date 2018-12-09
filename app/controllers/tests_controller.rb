@@ -30,10 +30,10 @@ class TestsController < ApplicationController
     #   format.json { render json: { tets: Test.all } }
     # end
 
-    # render_all  # only for check it
+    render_all  # only for check it
 
-    result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    render plain: result.join("\n")
+    # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
+    # render plain: result.join("\n")
   end
 
   def render_all
@@ -42,12 +42,12 @@ class TestsController < ApplicationController
       '<h3> All Tests </h3>
       <table>
       <tbody>
-      <% @tests.sort_by(&:title).each { |t| %>
+      <% @tests.order(:title).each do |t| %>
       <tr>
         <td> <%= t.title  %> </td>
         <td> <%= t.category.title  %> </td>
       </tr>
-      <% } %>
+      <% end %>
       <tbody>
       </table>'
   end

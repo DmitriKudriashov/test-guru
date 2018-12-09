@@ -1,16 +1,7 @@
-<html>
-  <head>
-    <title>Form</title>
-  </head>
-  <body>
-    <h3>New question:</h3>
-    <form action="/tests/<%= params[:test_id] %>/questions" method="post">
+<h1>Form Question</h1>
 
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%= render 'form', question: @question %>
 
-      <p><input type="text" name="question[body]"></p>
+<%= link_to 'Back', question_path %>
 
-      <p><input type="submit" value="Create"></p>
-    </form>
-  </body>
-</html>
+

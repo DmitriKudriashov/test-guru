@@ -1,4 +1,4 @@
-<h1>Questions</h1>
+<h2> Test: <%= @test.title %> </h2>
 <table>
   <thead>
     <tr>
@@ -13,7 +13,14 @@
       <tr>
         <td colspan="5" class = "celltab30"><%= question.id %></td>
         <td colspan="5" class = "celltab100left"><%= question.body %></td>
+        <td colspan="5" class = "s_e_d"><%= link_to 'Show', question %></td>
+        <td colspan="5" class = "s_e_d"><%= link_to 'Edit', edit_question_path(question) %></td>
+        <td colspan="5" class = "s_e_d"><%= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' } %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<br>
+<%= link_to 'New Question', new_test_question_path %><br>
+
+<br>
