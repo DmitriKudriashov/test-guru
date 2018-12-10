@@ -2,27 +2,24 @@
 
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[edit destroy show update]
-  before_action :find_test, only: %i[new create]
+  before_action :find_test, only: %i[index new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-  rescue_from ActiveRecord::RecordNotDestroyed, with: :rescue_with_question_not_destroyed
-  rescue_from ActiveRecord::RecordNotSaved, with: :rescue_with_question_not_saved
 
-  def index # view all questions . for me ONLY !
-    @questions = Question.all
+  def index
+    @questions = @test.questions.all
   end
 
   def new
-    @question = @test.questions.new(question_params)
+     @question = @test.questions.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @question = @test.questions.new(question_params)
     if @question.save
-      redirect_to @question, notice: 'Question was successfully created.'
+      redirect_to test_questions_path(@question.test_id), notice: 'Question was successfully created.'
     else
       render :new
     end
@@ -30,16 +27,20 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to @question, notice: 'Question was successfully updated.'
+      redirect_to test_questions_path(@question.test_id), notice: 'Question was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
-    @question.destroy
-    render inline: '<h3> Question: <%= @question.body %> was successfully destroyed.</h3>
-     <p> <%= link_to "Back", questions_path %> </p>'
+    if @question.destroy
+      render inline: '<h4> Question: <%= @question.body %> was successfully destroyed.</h4>
+        <p> <%= link_to "Back", test_questions_path(@question.test_id) %> </p>'
+    else
+      render inline: '<h3>The Question: <%= @question.body %>. Not deleted ! </h3>
+        <p> <%= link_to "Back", questions_path %> </p>'
+    end
   end
 
   def show
@@ -51,14 +52,6 @@ class QuestionsController < ApplicationController
     render plain: "The question: #{@question.body} ; test_id = #{@question.test_id}  not found!"
   end
 
-  def rescue_with_question_not_destroyed
-   render plain: "The question: #{@question.body} not deleted!!"
-  end
-
-  def rescue_with_question_not_saved
-   render plain: "The question: #{@question.body} not saved!"
-  end
-
   def find_test
     @test = Test.find(params[:test_id])
   end
@@ -68,6 +61,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body)
+    params.require(:question).permit(:body, :test_id)
   end
 end

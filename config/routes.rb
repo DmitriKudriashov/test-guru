@@ -9,7 +9,4 @@ Rails.application.routes.draw do
       resources :answers, shallow: true
     end
   end
-
-  get '/questions', to: 'questions#index'
-
 end

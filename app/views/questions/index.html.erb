@@ -1,3 +1,4 @@
+<h2> Test: <%= @test.title %> </h2>
 <table>
   <thead>
     <tr>
@@ -20,4 +21,6 @@
   </tbody>
 </table>
 <br>
+<%= link_to 'Create New Question To This Test ', new_test_question_path(@test) %><br>
+
 <br>

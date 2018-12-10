@@ -1,6 +1,6 @@
-<h1>Edit Question </h1>
+<h3>Edit question for test: <%= @question.test.title %></h3>
 
 <%= render 'form', question: @question %>
-
+<br>
 <%= link_to 'Show', @question %>
-<%= link_to 'Back', question_path %>
+<%= link_to 'Back', test_questions_path(@question.test_id) %>

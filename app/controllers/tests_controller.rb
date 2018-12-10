@@ -8,35 +8,6 @@ class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    # render html: '<h1> All tests </h1>'.html_safe
-
-    # render json: { tests: Test.all}
-
-    # render inline: '<p> My favorite language is: <%= %[ybuR].reverse! %> </p>'
-
-    # render file: 'public/about', layout: false
-
-    # head 204
-    # head :no_content
-
-    # byebug
-
-    # render inline: '<%= console %>'
-
-    # logger.info(self.object_id)
-
-    # respond_to do |format|
-    #   format.html { render plain: 'ALL Tests'}
-    #   format.json { render json: { tets: Test.all } }
-    # end
-
-    render_all  # only for check it
-
-    # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    # render plain: result.join("\n")
-  end
-
-  def render_all
     @tests = Test.all
     render inline:
       '<h3> All Tests </h3>
@@ -60,9 +31,6 @@ class TestsController < ApplicationController
   end
 
   def create
-    # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    # render plain: result.join("\n")
-
     test = Test.create(test_params)
     render plain: test.inspect
   end
