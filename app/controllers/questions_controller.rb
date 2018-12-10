@@ -2,21 +2,22 @@
 
 class QuestionsController < ApplicationController
   before_action :find_question, only: %i[edit destroy show update]
-  before_action :find_test, only: %i[index new create]
+  before_action :find_test, only: %i[new create]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   rescue_from ActiveRecord::RecordNotDestroyed, with: :rescue_with_question_not_destroyed
   rescue_from ActiveRecord::RecordNotSaved, with: :rescue_with_question_not_saved
 
-  def index
-    @questions = @test.questions # Question.all #
+  def index # view all questions . for me ONLY !
+    @questions = Question.all
   end
 
   def new
     @question = @test.questions.new(question_params)
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @question = @test.questions.new(question_params)
@@ -42,13 +43,12 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    # render inline: '<h3> <%= @question.body %> </h3>'
   end
 
   private
 
   def rescue_with_question_not_found
-    render plain: "The question: #{@question.id} ; #{@question.body} ; #{@question.test_id}not found!"
+    render plain: "The question: #{@question.body} ; test_id = #{@question.test_id}  not found!"
   end
 
   def rescue_with_question_not_destroyed
