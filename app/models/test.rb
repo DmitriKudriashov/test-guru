@@ -18,8 +18,8 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true, greater_than: 0 }
 
   default_scope { order(title: :desc) }
-  scope :by_category, ->(title)
-    { joins(:category).where(categories: { title: title }) }
+  scope :by_category,
+    ->(title) { joins(:category).where(categories: { title: title }) }
 
   def self.list_by_category(title)
     by_category(title).pluck(:title)

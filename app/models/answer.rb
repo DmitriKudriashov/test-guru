@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Answer < ApplicationRecord
-  MAX_COUNT = 4.freez
+  MAX_COUNT = 4.freeze
 
   belongs_to :question
 
@@ -12,7 +12,7 @@ class Answer < ApplicationRecord
   private
 
   def validate_number_answers
-    errors.add(:question, 'quantity answers must be between:(1..4)!')
-     if question.answers.count >= MAX_COUNT
+    errors.add(:question, 'quantity answers must be between:(1..4)!') if question.answers.count >= MAX_COUNT
   end
+
 end

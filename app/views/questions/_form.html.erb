@@ -1,0 +1,9 @@
+<%= form_for(question) do |f| %>
+  <div class="field">
+   question: <%= f.text_field :body %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
