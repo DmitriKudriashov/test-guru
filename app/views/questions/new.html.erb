@@ -1,16 +1,7 @@
-<html>
-  <head>
-    <title>Form</title>
-  </head>
-  <body>
-    <h3>New question:</h3>
-    <form action="/tests/<%= params[:test_id] %>/questions" method="post">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-      <p><input type="text" name="question[body]"></p>
-      <p><input type="submit" value="Create"></p>
-    </form>
-    <br>
-    <%= link_to 'Back', test_questions_path(@question.test_id) %>
-  </body>
-</html>
+<%= question_header(@question) %>
+
+<%= render 'form' %>
+
+<%= link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
+<br>
 

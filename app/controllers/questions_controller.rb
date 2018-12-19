@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
   private
 
   def rescue_with_question_not_found
-    render plain: "The question: #{@question.body} ; test_id = #{@question.test_id}  not found!"
+    render plain: "The question not found!"
   end
 
   def find_test
@@ -61,6 +61,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 end
