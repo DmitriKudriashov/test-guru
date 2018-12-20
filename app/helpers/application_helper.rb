@@ -3,7 +3,7 @@
 module ApplicationHelper
 
   def current_year
-    Date.today.year
+    Date.current.year
   end
 
   def github_url(author, repo)
