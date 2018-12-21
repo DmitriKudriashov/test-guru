@@ -3,4 +3,7 @@
 <%= render 'form', question: @question %>
 <br>
 <%= link_to 'Show', @question %>
-<%= link_to 'Back', test_questions_path(@question.test_id) %>
+<br>
+<%= link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
+<br>
+<%= link_to 'Back All Tests', tests_path %>

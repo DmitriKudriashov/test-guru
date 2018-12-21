@@ -1,8 +1,9 @@
-<%= form_for(question) do |f| %>
+<%= form_with model: [@test, @question], local: true do  |f| %>
+  <%= render 'shared/errors', resource: @question %>
   <div class="field">
-   question: <%= f.text_field :body %>
-  </div>
-  <br>
+    question: <%= f.text_field :body %>
+  </div><br>
+
   <div class="actions">
     <%= f.submit %>
   </div>
