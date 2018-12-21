@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
-  belongs_to :category
+  belongs_to :category,  optional: true
   has_many :questions, dependent: :destroy
-  has_many :user_tests, dependent: :destroy
-  has_many :users, through: :user_tests
-  belongs_to :author, class_name: 'User', foreign_key: :author_id
+  has_many :test_passages, dependent: :destroy
+  has_many :users, through: :test_passages
+  belongs_to :author, class_name: 'User', foreign_key: :author_id, optional: true
 
   validates :title, presence: true,
                     uniqueness: { scope: :level,
