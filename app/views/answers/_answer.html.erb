@@ -1,4 +1,9 @@
-      <tr>
-        <td class = "celltab30"><%= answer.id %></td>
-        <td class = "celltab100left"><%= answer.body %></td>
-      </tr>
+<li>
+  <%= answer.body  %> <br>
+  <%= link_to 'Show', answer_path(answer) %> |
+  <%= link_to 'Edit', edit_answer_path(answer) %> |
+  <%= link_to 'Delete',
+                answer_path(answer),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+</li>

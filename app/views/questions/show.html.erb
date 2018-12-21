@@ -1,12 +1,18 @@
-<h2><%= @question.test.title %></h2>
+<h2><%= @question.test.title %> Question </h2>
 <p>
   <%= @question.body %>
 </p>
 
-<%= render 'answers/list' %>
-<br>
+<h4>Answers</h4>
 
-<%= link_to 'Edit', edit_question_path %><br>
+<%= link_to 'New answer', new_question_answer_path(@question)  %>
+
+<ol>
+  <%= render @question.answers  %>
+</ol>
+
+<br>
+<%= link_to 'Edit' , edit_question_path %><br>
 <%= link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
 <br><br>
 <%= link_to 'Back All Tests', tests_path %>
