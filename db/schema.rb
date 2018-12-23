@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 2018_12_21_205451) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "current_questions", force: :cascade do |t|
+    t.text "body"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
     t.integer "test_id", null: false

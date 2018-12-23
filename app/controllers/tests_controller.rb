@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[edit update show]
+  before_action :set_test, only: %i[show edit update destroy start]
+  before_action :set_user, only: :start
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -41,14 +42,19 @@ class TestsController < ApplicationController
     render plain: result.join("\n")
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.test_passage(@test)
+  end
+
   private
 
-  def find_test
+  def set_test
     @test = Test.find(params[:id])
   end
 
-  def send_log_message
-    logger.info("Action [#{action_name}] was finished")
+  def set_user
+    @user = User.first
   end
 
   def test_params
