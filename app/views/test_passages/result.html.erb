@@ -1,1 +1,11 @@
-<h2>the Test was Completed</h2>
+<h2>The <%= @test_passage.test.title %> Test was Completed!</h2>
+
+<p>
+  Total Questions: <%= @test_passage.total_questions %> <br>
+  Correctly Answered Questions: <%= @test_passage.correct_questions %>
+</p>
+
+<%= message_of_correctly_answered(@test_passage) %> <br>
+
+<%= link_to 'All Tests', tests_path %>
+

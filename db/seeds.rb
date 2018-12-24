@@ -2,15 +2,15 @@
 
 # 1) users
 users = User.create([{ first_name: 'Firstname1', last_name: 'Lastname1',
-                       login: 'login1', password: 'password1' },
+                       login: 'login1', password: 'password1', email: 'a1@b.c'},
                      { first_name: 'Firstname2', last_name: 'Lastname2',
-                       login: 'login2', password: 'password2' },
+                       login: 'login2', password: 'password2', email: 'a2@b.c' },
                      { first_name: 'Firstname3', last_name: 'Lastname3',
-                       login: 'login3', password: 'password3' },
+                       login: 'login3', password: 'password3' , email: 'a3@b.c'},
                      { first_name: 'Firstname4', last_name: 'Lastname4',
-                       login: 'login4', password: 'password4' },
+                       login: 'login4', password: 'password4', email: 'a4@b.c' },
                      { first_name: 'Firstname5', last_name: 'Lastname5',
-                       login: 'login5', password: 'password5' }])
+                       login: 'login5', password: 'password5', email: 'a5@b.c'}])
 users.each do |t|
   t.email = "#{t.first_name}.#{t.last_name}@gmail.com"
   t.save
@@ -25,14 +25,14 @@ categories = Category.create([{ title: 'Category 1' },
                               { title: 'Category 6' },
                               { title: 'Category 7' }])
 # 3) tests
-tests = Test.create([{ title: 'Test1', level: 1, category: categories[0] },
-                     { title: 'Test2', level: 1, category: categories[0] },
-                     { title: 'Test3', level: 2, category: categories[1] },
-                     { title: 'Test4', level: 2, category: categories[2] },
-                     { title: 'Test5', level: 3, category: categories[3] },
-                     { title: 'Test6', level: 3, category: categories[4] },
-                     { title: 'Test7', level: 4, category: categories[5] },
-                     { title: 'Test8', level: 4, category: categories[6] }])
+tests = Test.create([{ title: 'Test1', level: 1, category: categories[0], author_id: 1 },
+                     { title: 'Test2', level: 1, category: categories[0], author_id: 1 },
+                     { title: 'Test3', level: 2, category: categories[1], author_id: 1 },
+                     { title: 'Test4', level: 2, category: categories[2], author_id: 1 },
+                     { title: 'Test5', level: 3, category: categories[3], author_id: 1 },
+                     { title: 'Test6', level: 3, category: categories[4], author_id: 1 },
+                     { title: 'Test7', level: 4, category: categories[5], author_id: 1 },
+                     { title: 'Test8', level: 4, category: categories[6], author_id: 1 }])
 # 4) questions
 questions = Question.create([{ body: 'Question1', test: tests[0] },
                              { body: 'Question2', test: tests[0] },
@@ -84,16 +84,3 @@ Answer.create([{ body: 'Answer 1.1', question: questions[0] },
                { body: 'Answer 15.2', question: questions[14] },
                { body: 'Answer 16.1', question: questions[15] },
                { body: 'Answer 16.2', question: questions[15] }])
-# 6) user_tests
-UserTest.create([{ value: 2, user_id: 1, test_id: 1 },
-                 { value: 1, user_id: 1, test_id: 2 },
-                 { value: 3, user_id: 1, test_id: 3 },
-                 { value: 2, user_id: 1, test_id: 4 },
-                 { value: 5, user_id: 1, test_id: 5 },
-                 { value: 3, user_id: 1, test_id: 6 },
-                 { value: 2, user_id: 1, test_id: 7 },
-                 { value: 3, user_id: 1, test_id: 8 },
-                 { value: 4, user_id: 1, test_id: 9 },
-                 { value: 1, user_id: 1, test_id: 10 },
-                 { value: 3, user_id: 1, test_id: 11 },
-                 { value: 4, user_id: 1, test_id: 12 }])

@@ -3,9 +3,9 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: %i[show edit update destroy]
 
   # GET /answers
-  # def index
-  #   @answers = Answer.all
-  # end
+  def index
+    @answers = Answer.all
+  end
 
   # GET /answers/1
   def show
