@@ -16,6 +16,8 @@
 
 <%= link_to 'Edit Test', edit_test_path(@test) %>
 <br>
-<%= link_to 'Back All Tests', tests_path %>
-<br><br>
+<p class="style_gray">
+  <%= link_to 'Back to All Tests', tests_path %>
+</p>
+<br>
 <%= render 'questions/list', test: @test %>

@@ -2,17 +2,24 @@
 <p>
   <%= @question.body %>
 </p>
+<%= link_to 'Edit Question' , edit_question_path %><br>
 
-<h4>Answers</h4>
+<!-- <h4>Answers</h4>
 
-<%= link_to 'New answer', new_question_answer_path(@question)  %>
+<%# link_to 'New answer', new_question_answer_path(@question)  %>
 
 <ol>
-  <%= render @question.answers  %>
+  <%# render @question.answers  %>
 </ol>
 
 <br>
-<%= link_to 'Edit' , edit_question_path %><br>
-<%= link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
+<%# link_to 'Edit' , edit_question_path %><br>
+<%# link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
+ --><br><br>
+
+<%= render 'answers' %>
 <br><br>
-<%= link_to 'Back All Tests', tests_path %>
+<%= link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
+<p class="style_gray">
+  <%= link_to 'Back to All Tests', tests_path %>
+</p>
