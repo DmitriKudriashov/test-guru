@@ -5,11 +5,11 @@ module TestPassagesHelper
   end
 
   def ok
-    ['ok', "Test #{@test_passage.correctly_percent} % ! Successfully Completed!"]
+    {result: 'ok', message: "Test #{@test_passage.correctly_percent} % ! Successfully Completed!"}
   end
 
   def bad
-    ['bad', 'Test Fail! Try again!']
+    {result: 'bad', message: 'Test Fail! Try again!'}
   end
 
   def question_index
