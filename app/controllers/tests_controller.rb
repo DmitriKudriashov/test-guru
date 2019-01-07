@@ -11,11 +11,10 @@ class TestsController < ApplicationController
   end
 
   def new
-     @test = Test.new
+    @test = Test.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @test.update(test_params)
@@ -25,8 +24,7 @@ class TestsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @test = Test.new(test_params)
@@ -58,11 +56,10 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :author_id )
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 
   def rescue_with_test_not_found
     render plain: 'Test was not found!'
   end
 end
-

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
@@ -11,12 +13,12 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    self.current_question.nil?
+    current_question.nil?
   end
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
-      self.correct_questions = self.correct_questions.to_i + 1
+      self.correct_questions = correct_questions.to_i + 1
     end
 
     self.current_question = next_question
@@ -24,11 +26,11 @@ class TestPassage < ApplicationRecord
   end
 
   def correctly_percent
-    @correctly_percent = self.correct_questions.to_f * 100 / total_questions
+    @correctly_percent = correct_questions.to_f * 100 / total_questions
   end
 
   def current_index_question
-    test.questions.index(self.current_question).to_i + 1
+    test.questions.index(current_question).to_i + 1
   end
 
   def total_questions
@@ -38,7 +40,7 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_question
-    self.current_question.nil? && test.present? ? first_question : next_question
+    current_question.nil? && test.present? ? first_question : next_question
   end
 
   def first_question
@@ -50,10 +52,10 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answers
-    self.current_question.answers.correct
+    current_question.answers.correct
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', self.current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question.id).first
   end
 end

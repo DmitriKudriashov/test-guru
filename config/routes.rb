@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   root to: 'tests#index'
 
   resources :tests do
@@ -15,10 +14,8 @@ Rails.application.routes.draw do
   end
 
   resources :test_passages, only: %i[show update] do
-
     member do
       get :result
     end
   end
-
 end

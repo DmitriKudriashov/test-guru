@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Test < ApplicationRecord
-  belongs_to :category,  optional: true
+  belongs_to :category, optional: true
   has_many :questions, dependent: :destroy
   has_many :test_passages, dependent: :destroy
   has_many :users, through: :test_passages
@@ -9,7 +9,7 @@ class Test < ApplicationRecord
 
   validates :title, presence: true,
                     uniqueness: { scope: :level,
-                    message: 'Title and level must be unique combination' }
+                                  message: 'Title and level must be unique combination' }
 
   scope :easy, -> { where(level: 0..1) }
   scope :mid, -> { where(level: 2..4) }
@@ -20,7 +20,7 @@ class Test < ApplicationRecord
   default_scope { order(:title) }
 
   scope :by_category,
-    ->(title) { joins(:category).where(categories: { title: title }) }
+        ->(title) { joins(:category).where(categories: { title: title }) }
 
   def self.list_by_category(title)
     by_category(title).order(title: :desc).pluck(:title)

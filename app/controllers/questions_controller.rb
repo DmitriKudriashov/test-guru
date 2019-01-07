@@ -7,7 +7,7 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def new
-     @question = @test.questions.new
+    @question = @test.questions.new
   end
 
   def edit; end
@@ -39,13 +39,12 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   private
 
   def rescue_with_question_not_found
-    render plain: "The question not found!"
+    render plain: 'The question not found!'
   end
 
   def find_test

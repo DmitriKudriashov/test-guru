@@ -1,15 +1,18 @@
-module TestPassagesHelper
+# frozen_string_literal: true
 
+module TestPassagesHelper
   def result_status
     @test_passage.test_passed? ? ok : bad
   end
 
   def ok
-    {result: 'ok', message: "Test #{@test_passage.correctly_percent} % ! Successfully Completed!"}
+    { value: 'ok',
+      message: "Test #{@test_passage.correctly_percent} % ! Successfully Completed!" }
   end
 
   def bad
-    {result: 'bad', message: 'Test Fail! Try again!'}
+    { value: 'bad',
+      message: "Test Fail! Only #{@test_passage.correctly_percent} %! Try again!" }
   end
 
   def question_index
