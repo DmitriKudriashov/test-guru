@@ -1,9 +1,16 @@
 <h3>Edit question for test: <%= @question.test.title %></h3>
 
 <%= render 'form', question: @question %>
+
 <br>
 <%= link_to 'Show', @question %>
-<br>
+<br><br>
+
+<%= render 'answers' %>
+<br><br>
+
 <%= link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
-<br>
-<%= link_to 'Back All Tests', tests_path %>
+
+<p class="style_gray">
+  <%= link_to 'Back to All Tests', tests_path %>
+</p>

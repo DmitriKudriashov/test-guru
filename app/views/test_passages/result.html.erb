@@ -1,0 +1,23 @@
+<h2>The <%= @test_passage.test.title %> Test Completed!</h2>
+
+<p class="style_blue">
+
+  Total questions: <%= @test_passage.total_questions %>
+
+</p>
+
+<br>
+
+  <p class=<%= "#{result_status[:value]}"%> >
+
+     <%= "#{result_status[:message]}" %>
+
+  </p>
+
+<br>
+
+<p class="style_gray">
+
+  <%= link_to 'Back to All Tests', tests_path %>
+
+</p>

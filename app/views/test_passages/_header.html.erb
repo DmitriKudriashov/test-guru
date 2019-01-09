@@ -1,0 +1,15 @@
+<h4>
+  question No: <%= question_position %>
+  <p><%= @test_passage.current_question.body %></p>
+
+  <% if  @test_passage.current_question.answers.count.zero? %>
+
+    <p class="bad" > No answers added to this question yet!  </p>
+
+  <% else %>
+
+    <%= render 'form' %>
+
+  <% end %>
+
+</h4>
