@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  before_action :find_user, on: :create # %i[create update] # kds
+  before_action :find_user, on: :create
 
   def new; end
 
@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to session[:request_page].to_s
-      # redirect_to cookies[:path] || root_path
     else
       flash.now[:alert] = 'Are you Guru? Check your Email and Password!'
       redirect_to root_path
@@ -18,8 +17,6 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     @user = nil
-    # flash[:notice] = "You have successfully logged out."
-    # redirect_to login_path, notice: 'Logout!'
     redirect_to login_path, notice: 'Logout!'
   end
 

@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'digest/sha1'
 
 class User < ApplicationRecord
 
