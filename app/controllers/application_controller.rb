@@ -2,10 +2,6 @@
 
 class ApplicationController < ActionController::Base
 
-  # before_action :goto_request_page
-  # before_action :authenticate_user!
-    # only: %i[answers_controller questions_controller test_passages_controller tests_controller]
-
   protect_from_forgery with: :exception
 
   helper_method :current_user,

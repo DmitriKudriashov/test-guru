@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class TestPassagesController < ApplicationController
+class TestPassagesController < AuthenticatedController
+
   before_action :set_test_passage, only: %i[show update result]
 
   def show; end

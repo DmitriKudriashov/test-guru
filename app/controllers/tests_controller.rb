@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
-class TestsController < ApplicationController
+class TestsController < AuthenticatedController
 
-  before_action :authenticate_user!
   before_action :set_test, only: %i[show edit update destroy start]
   before_action :find_user, only: %i[start new create]
 
