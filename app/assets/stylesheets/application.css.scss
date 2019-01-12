@@ -13,6 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.nav {
+    color: aqua;
+    background-color: navy;
+  }
+
+.nav.user {
+  text-align: right;
+  }
+
+.navigation {
+  font-weight: bold;
+  font-size: 12px;
+  color: navy;
+  background-color: aqua;
+  width: 150.0pt;
+  }
+
 .s_e_d{ width:30.0pt;  border-collapse:collapse; text-align:center; }
 
 .celltab10{ width:10.0pt; border:solid black 1.0pt; text-align:center; }
