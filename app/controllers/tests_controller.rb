@@ -11,9 +11,7 @@ class TestsController < AuthenticatedController
   end
 
   def new
-    @test = Test.new
-    @test.author_id = current_user.id # только в этом варианте при открытии формы там в дроб боксе author появляется текущий юзер
-    # @test = current_user.author_tests.new #!!! этот вариант дает ошибку! unknown attribute 'user_id' for Test.
+    @test = current_user.author_tests.new
   end
 
   def edit; end
@@ -29,13 +27,17 @@ class TestsController < AuthenticatedController
   def show; end
 
   def create
-    # @test = current_user.author_tests.new(test_params) # дает ошибку: unknown attribute 'user_id' for Test.
-    @test = Test.new(test_params)
+    @test = current_user.author_tests.new(test_params)
     if @test.save
       redirect_to @test
     else
       render :new
     end
+  end
+
+  def destroy
+    @test.destroy
+    redirect_to tests_path, notice: "The Test: #{@test.title} sucsessfuly deleted!"
   end
 
   def search
