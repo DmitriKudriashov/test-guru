@@ -10,6 +10,7 @@
   <body>
 
     <p> <%= render 'shared/navigation' %>
+    <%= flash_messages %>
     <%= welcome_message %> </p><br>
     <%= yield %>
     <p><%= render 'shared/footer' %></p>

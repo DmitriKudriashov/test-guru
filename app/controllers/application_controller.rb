@@ -7,18 +7,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_user,
                 :logged_in?
 
-  def goto_request_page
+  def set_request_page
     session[:request_page] = request.fullpath if request.get?
   end
 
   private
 
   def authenticate_user!
-    if current_user
-      cookies[:email] = current_user&.email
-    else
-      redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please!'
-    end
+    redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please!' unless current_user
   end
 
   def current_user

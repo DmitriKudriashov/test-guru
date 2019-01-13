@@ -2,8 +2,7 @@
 
 class TestsController < AuthenticatedController
 
-  before_action :set_test, only: %i[show edit update destroy start]
-  before_action :find_user, only: %i[start new create]
+  before_action :find_test, only: %i[show edit update destroy start]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -13,7 +12,8 @@ class TestsController < AuthenticatedController
 
   def new
     @test = Test.new
-    @test.author_id = @user.id
+    @test.author_id = current_user.id # только в этом варианте при открытии формы там в дроб боксе author появляется текущий юзер
+    # @test = current_user.author_tests.new #!!! этот вариант дает ошибку! unknown attribute 'user_id' for Test.
   end
 
   def edit; end
@@ -29,6 +29,7 @@ class TestsController < AuthenticatedController
   def show; end
 
   def create
+    # @test = current_user.author_tests.new(test_params) # дает ошибку: unknown attribute 'user_id' for Test.
     @test = Test.new(test_params)
     if @test.save
       redirect_to @test
@@ -43,18 +44,14 @@ class TestsController < AuthenticatedController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    current_user.tests.push(@test)
+    redirect_to current_user.test_passage(@test)
   end
 
   private
 
-  def set_test
+  def find_test
     @test = Test.find(params[:id])
-  end
-
-  def find_user
-    @user = User.find(session[:user_id])
   end
 
   def test_params
