@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class QuestionsController < ApplicationController
+class QuestionsController < AuthenticatedController
+
   before_action :find_question, only: %i[edit destroy show update]
   before_action :find_test, only: %i[new create]
 
