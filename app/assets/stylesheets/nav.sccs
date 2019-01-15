@@ -1,9 +1,14 @@
 .nav {
     color: aqua;
     background-color: navy;
+    text-align: right;
   }
 
 .nav.user {
   text-align: right;
   }
 
+.nav.nav-admin.user{
+  text-align: right;
+
+}

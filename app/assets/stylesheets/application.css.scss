@@ -15,13 +15,18 @@
  */
 
 .nav {
-    color: aqua;
+    color: white;
     background-color: navy;
   }
 
 .nav.user {
   text-align: right;
   }
+
+.nav.nav-admin.user {
+  text-align: right;
+  }
+
 
 .navigation {
   font-weight: bold;

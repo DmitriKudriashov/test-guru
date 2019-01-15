@@ -1,0 +1,16 @@
+<tr>
+  <td class = "celltab100left" ><%= test.title %></td>
+  <td class = "celltab50left"><%= test_level(test) %></td>
+  <td class = "celltab60center"><%= test.category.title %></td>
+  <td class = "celltab100left"><%= test.author.email %></td>
+  <td class = "celltab30center"><%= test.questions.count %></td>
+  <td class = "s_e_d"><%= link_to 'Show', admin_test_path(test) %></td>
+  <td class = "s_e_d"><%= link_to 'Edit', edit_admin_test_path(test) %></td>
+  <td class = "s_e_d">
+    <%= link_to 'Delete',
+                admin_test_path(test),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+
+  </td>
+</tr>

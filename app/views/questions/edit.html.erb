@@ -9,8 +9,8 @@
 <%= render 'answers' %>
 <br><br>
 
-<%= link_to "Back to: #{@question.test.title} all questions" , test_path(@question.test) %>
+<%= link_to "Back to: #{@question.test.title} all questions" , admin_test_path(@question.test) %>
 
 <p class="style_gray">
-  <%= link_to 'Back to All Tests', tests_path %>
+  <%= link_to 'Back to All Tests', admin_tests_path %>
 </p>
