@@ -2,13 +2,15 @@
     color: aqua;
     background-color: navy;
     text-align: right;
-  }
+}
 
 .nav.user {
   text-align: right;
+}
+
+.nav-admin.user {
+  a { color: white }
+  a:visited {
+    color: #eee;
   }
-
-.nav.nav-admin.user{
-  text-align: right;
-
 }

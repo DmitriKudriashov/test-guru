@@ -6,4 +6,8 @@ module TestsHelper
   def test_level(test)
     TEST_LEVELS[test.level] || :hero
   end
+
+  def list_of_users
+    admin? ? [current_user] : User.all
+  end
 end

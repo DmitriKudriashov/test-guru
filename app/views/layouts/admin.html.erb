@@ -10,12 +10,22 @@
   </head>
   <body>
 
-    <p> <%= render 'admin/nav' %>
-    <%= flash_messages %>
+    <div class="body">
+      <%= render 'admin/nav'%>
+      <%= render 'shared/flash'%>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
+
+
+<!--
+    <p> <%#= render 'admin/nav' %>
+    <%#= flash_messages %>
     <%#= render 'shared/flash' %>
 
     <%#= welcome_message %> </p><br>
-    <%= yield %>
+ -->
+    <%#= yield %>
     <!-- <p><%#= render 'shared/footer' %></p> -->
 
   </body>

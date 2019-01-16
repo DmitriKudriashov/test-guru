@@ -25,5 +25,9 @@ module ApplicationHelper
       content_tag :div, "Welcome, #{current_user.email}  Guru", class: "nav user"
       link_to 'Logout', destroy_user_session_path, method: :delete
     end
-   end
+  end
+
+  def admin?
+    current_user.is_a?(Admin)
+  end
 end
