@@ -3,14 +3,17 @@
 <%= render 'form', question: @question %>
 
 <br>
+
 <%= link_to 'Show', admin_question_path %>
-<br><br>
+
+<br>
 
 <%= render 'answers' %>
-<br><br>
 
 <%= link_to "Back to: #{@question.test.title} all questions" , admin_test_path(@question.test) %>
 
 <p class="style_gray">
+
   <%= link_to 'Back to All Tests', admin_tests_path %>
+
 </p>

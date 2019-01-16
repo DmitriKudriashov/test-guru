@@ -2,8 +2,6 @@
 
 class TestsController < AuthenticatedController
 
-  before_action :find_test, only: :start  # %i[show edit update destroy start]
-
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -12,6 +10,7 @@ class TestsController < AuthenticatedController
   end
 
   def start
+    find_test
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test)
   end
@@ -19,7 +18,7 @@ class TestsController < AuthenticatedController
   private
 
   def hello_user
-    if current_user  #&& current_user.sign_in_count == 1
+    if current_user
       unless session[:display_welcome]
         flash.now[:notice] = "Hello, #{current_user.first_name} #{current_user.last_name}"
         session[:display_welcome] = true
@@ -27,7 +26,7 @@ class TestsController < AuthenticatedController
     end
   end
 
-  def find_test ## kds ?? может в старт вставить это
+  def find_test
     @test = Test.find(params[:id])
   end
 

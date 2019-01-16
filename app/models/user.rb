@@ -16,8 +16,6 @@ class User < ApplicationRecord
 
   validates :email, uniqueness: true, presence: true, format: /.+@.+\..+/i
 
-  # has_secure_password
-
   scope :listing, ->(level) { where(level: level) }
 
   def list_tests(level)

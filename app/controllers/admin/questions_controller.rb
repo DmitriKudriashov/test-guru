@@ -17,8 +17,6 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.new(question_params)
     if @question.save
       redirect_to admin_question_path(@question), notice: 'Question was successfully created.'
-
-      # redirect_to test_path(@question.test), notice: 'Question was successfully created.' # OLD !
     else
       render :new
     end
@@ -27,7 +25,6 @@ class Admin::QuestionsController < Admin::BaseController
   def update
     if @question.update(question_params)
       redirect_to admin_question_path(@question), notice: 'Question was successfully updated.'
-      #  redirect_to test_path(@question.test), notice: 'Question was successfully updated.' ## OLD
     else
       render :edit
     end
@@ -61,10 +58,5 @@ class Admin::QuestionsController < Admin::BaseController
   def question_params
     params.require(:question).permit(:body)
   end
+
 end
-
-
-
-
-
-
