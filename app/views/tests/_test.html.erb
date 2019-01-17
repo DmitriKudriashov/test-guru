@@ -2,17 +2,8 @@
   <td class = "celltab100left" ><%= test.title %></td>
   <td class = "celltab50left"><%= test_level(test) %></td>
   <td class = "celltab60center"><%= test.category.title %></td>
-  <td class = "celltab100left"><%= test.author.first_name %></td>
+  <td class = "celltab100left"><%= test.author.email %></td>
   <td class = "celltab30center"><%= test.questions.count %></td>
-  <td class = "s_e_d"><%= link_to 'Show', test_path(test) %></td>
-  <td class = "s_e_d"><%= link_to 'Edit', edit_test_path(test) %></td>
-  <td class = "s_e_d">
-    <%= link_to 'Delete',
-                test_path(test),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %>
-
   <td class = "s_e_d"><%= button_to 'Start', start_test_path(test) %></td>
-
   </td>
 </tr>

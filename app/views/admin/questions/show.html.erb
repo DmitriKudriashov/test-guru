@@ -1,0 +1,11 @@
+<h2><%= @question.test.title %> Question </h2>
+<p>
+  <%= @question.body %>
+</p>
+<%= link_to 'Edit Question' , edit_admin_question_path %><br>
+<%= render 'answers' %>
+<br>
+<%= link_to "Back to: #{@question.test.title} all questions" , admin_test_path(@question.test) %>
+<p class="style_gray">
+  <%= link_to 'Back to All Tests', admin_tests_path %>
+</p>

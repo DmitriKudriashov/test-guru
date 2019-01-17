@@ -1,0 +1,21 @@
+<%= form_with model: [:admin, @test], local: true do |form| %>
+
+  <%= render 'shared/errors', resource: @test %>
+
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :level %>
+    <%= form.collection_select :level, TestsHelper::TEST_LEVELS, :first, :last, {selected: @test.level} %>
+  </p>
+  <p>
+    <%= form.label :category_id%>:
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
+  <br>
+
+  <p> <%= form.submit %> </p>
+<% end %>
+<br>

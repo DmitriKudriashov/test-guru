@@ -1,9 +1,0 @@
-.nav {
-    color: aqua;
-    background-color: navy;
-  }
-
-.nav.user {
-  text-align: right;
-  }
-
