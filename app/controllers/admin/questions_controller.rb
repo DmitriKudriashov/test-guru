@@ -31,12 +31,12 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def destroy
-    if @question.destroy
-      msg = "Question: #{@question.body} was successfully destroyed."
-    else
-      msg = "Question: #{@question.body}  Not deleted !"
-    end
-      redirect_to admin_test_path(@question.test), notice: msg
+    msg = if @question.destroy
+            "Question: #{@question.body} was successfully destroyed."
+          else
+            "Question: #{@question.body}  Not deleted !"
+          end
+    redirect_to admin_test_path(@question.test), notice: msg
   end
 
   def show; end
