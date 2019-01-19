@@ -1,24 +1,24 @@
-<h3> Show test:  <%= @test.title %> </h3>
+<h3> <%= t('.header', title: @test.title) %> </h3>
 <p>
-  <strong>Level:</strong>
+  <%= t('.level')  %>
   <%= test_level(@test) %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <%= t('.category')  %>:
   <%= @test.category.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong><%= t('.author')  %> </strong>
   <%= @test.author.email %>
 </p>
 
-<%= link_to 'Edit Test', edit_admin_test_path(@test) %>
+<%= link_to t('.edit_test') , edit_admin_test_path(@test) %>
 <br>
 <p class="style_gray">
-  <%= link_to 'Back to All Tests', admin_tests_path %>
+  <%= link_to t('back_to_all_tests'), admin_tests_path %>
 </p>
 <br>
-<h3>Questions</h3>
+<h3><%= t('questions') %></h3>
  <%= render 'admin/questions/list', test: @test %>

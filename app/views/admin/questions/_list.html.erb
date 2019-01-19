@@ -1,9 +1,10 @@
 <% if test.questions.present? %>
+
   <table>
     <tr>
-      <th class = "celltab100center">Question</th>
-      <th class = "celltab30center">Answers</th>
-       <th colspan="3">Actions</th>
+      <th class = "celltab100center"><%= t('.question') %> </th>
+      <th class = "celltab30center"><%= t('.answers') %></th>
+       <th colspan="3"><%= t('actions') %></th>
     </tr>
 
     <%= render test.questions %>
@@ -15,7 +16,7 @@
 <% end %>
 
 <p>
-  <%= link_to 'New question', new_admin_test_question_path(test) %>
+  <%= link_to t('.new_question'), new_admin_test_question_path(test) %>
 </p>
 
 

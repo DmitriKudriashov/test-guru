@@ -1,6 +1,6 @@
-<h3>Answers</h3>
+<h3><%= t('.answers') %></h3>
 
-<%= link_to 'New answer', new_admin_question_answer_path(@question)  %>
+<%= link_to t('.new_answer'), new_admin_question_answer_path(@question)  %>
 
 <ol>
   <%= render @question.answers  %>

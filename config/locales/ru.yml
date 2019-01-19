@@ -1,0 +1,177 @@
+ru:
+  # самые общие названия для любого места применения
+  actions: "Действия"
+  show: "Показать"
+  edit: "Изменить"
+  delete: "Удалить"
+  questions: "Вопросы"
+  back: "Возврат"
+  back_to_all_tests: "Возврат ко всем тестам"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+      question:
+        create: "Создать новый вопрос"
+        update: "Обновить вопрос"
+      answer:
+        create: "Создать новый ответ"
+        update: "Обновить ответ "
+      devise:
+        sessions:
+          new: "Ввод"
+        registrations:
+          new:
+
+    select:
+      # Default value for :prompt => true in FormOptionsHelper - from Rails source code.
+      # общий случай для любого выбора из списка
+      prompt: "Пожалуйста, выберите:"
+
+      # только для выбора категории в тесте!
+      test:
+        category_id:
+          prompt: "Пожалуйста, выберите категорию"
+
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      question:
+        body: "Вопрос:"
+      answer:
+        body: "Ответ"
+        correct: "Верный"
+      devise:
+  devise:
+    registrations:
+      new:
+        become: "Стань Гуру"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        password_confirmation: "Подтвержждение пароля"
+        submit: "Зарегистрироваться"
+    sessions:
+      new:
+        title: "Вход в систему: Тест Гуру"
+        submit: "Вход"
+        remember_me: "Запомнить меня"
+
+    shared:
+      links:
+        log_in: "Ввести логин"
+        sign_up: "Зарегистрироваться"
+        forgot_you_password: "Забыли свой пароль?"
+        none_instructions: "Не получили инструкции для подтверждения?"
+
+  layouts:
+    application:
+      title: "Тест Гуру"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+    navigation:
+      test_guru: "Тест Гуру"
+      hello: "Добро пожаловать, гуру %{user} "
+      logout: "Выход"
+      login: "Вход"
+      signup: "Регистрация"
+      exit: "Выход"
+
+  tests:
+    index:
+      header: 'Доступные тесты'
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      questions: "Вопросы"
+      actions: "Действия"
+      empty: "Еще нет тестов!"
+
+    test:
+      start: "Пройти"
+
+  test_passages:
+    result:
+      header: "Тест %(title) успешно завершен!"
+
+  test_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
+
+  admin:
+    nav:
+      hello: "Добро пожаловать, гуру %{user} "
+      panel: "Панель Администратора"
+      welcome: "Привет, гуру: "
+      email: "%{user_email}"
+      logout: "Выход"
+
+    tests:
+      create:
+        success: "Тест успешно выполнен!"
+      destroy:
+        success: "Тест: %{title} успешно удален!"
+      index:
+        header: "Администрирование Тестов"
+        new_test: "Создать новый тест"
+        title: "Название "
+        level: "Уровень"
+        category: "Категория"
+        author: "Автор"
+        questions: "Вопросы"
+        empty: "Список тестов пустой!"
+      form:
+        prompt: "Пожалуйста, выберите категорию"
+      new:
+        header: "Создание нового теста"
+      edit:
+        header: "Редактирование теста %{title}"
+      show:
+        header: "Просмотр теста %{title}"
+        level: "Уровень:"
+        category: "Категория"
+        author: "Автор:"
+        edit_test: "Редактирование теста"
+
+    questions:
+      answers:
+        answers: "Список ответов"
+        new_answer: "Добавить ответ"
+      list:
+        question: "Вопрос"
+        answers: "Число Ответов"
+        new_question: "Создать новый вопрос"
+      new:
+        back_admin_test_path:  "Возврат к вопросам теста: %{name} "
+      edit:
+        header: "Изменить вопрос для теста: %{test}"
+        back_admin_test_path:  "Возврат к вопросам теста: %{name} "
+      show:
+        question_test: "Для теста %{title}, вопрос:"
+        back_admin_test_path:  "Возврат к вопросам теста: %{name} "
+
+    answers:
+      list:
+        answer: "Ответ"
+        correct: "Верный"
+        question: "Вопрос"
+      edit:
+        title: "Изменить ответ"
+      new:
+        title: "Создать ответ"
+      show:
+        answer: "Ответ:"
+        correct: "Верный:"
+        question: "Вопрос: %{body}"
+
+

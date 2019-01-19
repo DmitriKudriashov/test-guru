@@ -30,4 +30,170 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  # common names
+  actions: "Actions"
+  show: "Show"
+  edit: "Edit"
+  delete: "Delete"
+  questions: "Questions"
+  back: "Back"
+  back_to_all_tests: "Back to All Tests"
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      question:
+        create: "New question"
+        update: "Update question"
+      answer:
+        create: "New answer insert"
+        update: "Update answers"
+
+    select:
+      # Default value for :prompt => true in FormOptionsHelper - from Rails source code.
+      prompt: "Please, select:"
+
+      # for case: select category only!
+      test:
+        category_id:
+          prompt: "Please select category"
+
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      question:
+        body: "Question:"
+      answer:
+        body: "Answer"
+        correct: "Correct"
+
+  devise:
+    registrations:
+      new:
+        become: "Become a Guru"
+        first_name: "First name"
+        last_name: "Last name"
+        password_confirmation: "Password confirmation"
+        submit: "Sign up"
+    sessions:
+      new:
+        title: "Enter the Guru Gates"
+        submit: "Enter"
+        remember_me: "Remember me"
+
+    shared:
+      links:
+        log_in: "Log in"
+        sign_up: "Sign Up"
+        forgot_you_password: "Forgot your password?"
+        none_instructions: "Didn't receive confirmation instructions?"
+
+  layouts:
+    application:
+      title: "Test Guru"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+    navigation:
+      test_guru: "Test Guru"
+      hello: "Hello, guru %{user} "
+      logout: "Logout"
+      login: "Login"
+      signup: "Registration"
+      exit: "Exit"
+
+  tests:
+    index:
+      header: "Tricky tests"
+      title: "Title"
+      level: "Level"
+      category: "Category"
+      questions: "Questions"
+      empty: "Tests list is empty !"
+    test:
+      start: "Start"
+
+  test_passages:
+    result:
+      header: "Тest %(title) successfully finished!"
+
+  test_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
+
+  admin:
+    nav:
+      hello: "Hello! guru %{user} "
+      panel: "Test Guru Admin Panel"
+      welcome: "Welcome, Guru: "
+      email: "%{user_email}"
+      logout: "Logout"
+
+    tests:
+      create:
+        success: "Test was successfully created."
+      destroy:
+        success: "The test: %{title} successfully deleted!"
+      index:
+        header: "Admins Tricky tests"
+        new_test: "Сreate new test"
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        author: "Author"
+        questions: "Questions"
+        empty: "Tests list is empty !"
+      form:
+        prompt: "Please select category"
+      new:
+        header: "Create New Test"
+      edit:
+        header: "Edit test: %{title}"
+      show:
+        header: "Show test %{title}"
+        level: "Level:"
+        author: "Author:"
+        category: "Category:"
+        edit_test: "Edit Test"
+
+    questions:
+      answers:
+        answers: "Answers list"
+        new_answer: "Add new answer"
+      list:
+        question: "Questions"
+        answers: "Number Answers"
+        new_question: "New question create"
+      new:
+        back_admin_test_path:  "Back to: %{name} all questions"
+      edit:
+        header: "Edit question for test: %{test}"
+        back_admin_test_path:  "Back to: %{name} all questions"
+      show:
+        question_test: "For this test: %{title}, question:"
+        back_admin_test_path:  "Back to: %{name} all questions"
+
+    answers:
+      list:
+        answer: "Answer:"
+        correct: "Correct"
+        question: "Question"
+      edit:
+        title: "Edit Answer"
+      new:
+        title: "New Answer"
+      show:
+        answer: "Answer:"
+        correct: "Correct:"
+        question: "Question: %{body}"
+
+
+
+

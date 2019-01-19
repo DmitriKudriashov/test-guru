@@ -2,7 +2,7 @@
 
 class TestsController < AuthenticatedController
 
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
+#  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
    hello_user
@@ -20,10 +20,7 @@ class TestsController < AuthenticatedController
   def hello_user
     return unless current_user
 
-    unless session[:display_welcome]
-      flash.now[:notice] = "Hello, #{current_user.first_name} #{current_user.last_name}"
-      session[:display_welcome] = true
-    end
+    flash.now[:notice] = current_user.first_and_last_name
   end
 
 end

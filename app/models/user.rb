@@ -29,4 +29,8 @@ class User < ApplicationRecord
   def admin?
     is_a?(Admin)
   end
+
+  def first_and_last_name
+    "Hello, #{self.first_name} #{self.last_name}"
+  end
 end
