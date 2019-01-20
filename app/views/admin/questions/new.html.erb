@@ -2,6 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to "Back to: #{@question.test.title} all questions" , admin_test_path(@question.test) %>
+<%= link_to t('.back_admin_test_path', name: @question.test.title), admin_test_path(@question.test) %>
 <br>
 

@@ -1,16 +1,16 @@
-<!-- <h1> Tricky Tests </h1> -->
+<h1> <%= t('.header') %> </h1>
+<%= hello_user %>
 <% if @tests.present? %>
   <table>
     <tr>
-      <th class = "celltab100">Title</th>
-      <th class = "celltab50">Level</th>
-      <th class = "celltab60">Category</th>
-      <th class = "celltab100">Author</th>
-      <th class = "celltab30">Questions</th>
+      <th class = "celltab100"><%= t('.title') %></th>
+      <th class = "celltab50"><%= t('.level') %></th>
+      <th class = "celltab60"><%= t('.category') %></th>
+      <th class = "celltab30"><%= t('.questions') %></th>
     </tr>
     <%= render @tests %>
   </table>
 <% else %>
-  <p>Tests list is empty !</p>
+  <p><%= t('.empty') %></p>
 <% end %>
 <br>

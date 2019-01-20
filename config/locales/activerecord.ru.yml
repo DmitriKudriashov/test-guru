@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    models:
+      test: "Тест"
+      user: "Пользователь"
+
+    attributes:
+      test:
+        title: "Название"
+        category_id: "Категория"
+
+      user:
+        email: "Логин (e-mail)"
+        password: "Пароль"
+
+    errors:
+      messages:
+        blank: "не может быть пустым"
+
+

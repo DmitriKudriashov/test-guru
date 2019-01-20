@@ -1,16 +1,16 @@
 <div class="navigation">
 
-  <div class="style_gray"><%= link_to 'Test Guru', root_path %></div>
+  <div class="style_gray"><%= link_to t('.test_guru'), root_path %></div>
 
   <% if user_signed_in? %>
-
-    <p> <%= link_to 'Exit', destroy_user_session_path, method: :delete %> </p>
+    <%= t('.hello', user: current_user.email) %>
+    <p> <%= link_to t('.logout'), destroy_user_session_path, method: :delete, data: { confirm: t('are_you_sure') } %> </p>
 
   <% else %>
 
     <p>
-      <%= link_to 'Login', new_user_session_path %>
-      <%= link_to 'Signup', new_user_registration_path %>
+      <%= link_to t('.login'), new_user_session_path %>
+      <%= link_to t('.signup'), new_user_registration_path %>
     </p>
 
   <% end %>

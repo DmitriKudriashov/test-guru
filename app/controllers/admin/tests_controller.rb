@@ -29,7 +29,7 @@ class Admin::TestsController < Admin::BaseController
   def create
     @test = current_user.author_tests.new(test_params)
     if @test.save
-      redirect_to admin_test_path(@test)
+      redirect_to admin_test_path(@test), notice: t('.success')
     else
       render :new
     end
@@ -37,7 +37,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_tests_path, notice: "The Test: #{@test.title} sucsessfuly deleted!"
+    redirect_to admin_tests_path, notice: t('.destroy', title: @test.title )
   end
 
   def search

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Test Guru</title>
+    <title><%= t('.title') %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,7 +11,7 @@
 
     <p> <%= render 'shared/navigation' %>
     <%= flash_messages %>
-    <%= welcome_message %> </p><br>
+    </p><br>
     <%= yield %>
     <p><%= render 'shared/footer' %></p>
 

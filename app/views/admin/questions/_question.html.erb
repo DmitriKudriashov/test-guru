@@ -1,12 +1,12 @@
 <tr>
   <td class = "celltab100left"><%= question.body %></td>
   <td class = "celltab30center"><%= question.answers.count %></td>
-  <td class = "s_e_d"><%= link_to 'Show', admin_question_path(question) %></td>
-  <td class = "s_e_d"><%= link_to 'Edit', edit_admin_question_path(question) %></td>
+  <td class = "s_e_d"><%= link_to t('show'), admin_question_path(question) %></td>
+  <td class = "s_e_d"><%= link_to t('edit'), edit_admin_question_path(question) %></td>
   <td class = "s_e_d">
-    <%= link_to 'Delete',
+    <%= link_to t('delete'),
                 admin_question_path(question),
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+                data: { confirm: t('are_you_sure') } %>
   </td>
 </tr>

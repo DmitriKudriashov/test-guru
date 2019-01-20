@@ -16,11 +16,4 @@ module ApplicationHelper
     .join("\n").html_safe
   end
 
-  def welcome_message
-    if user_signed_in?
-      content_tag :div, "Welcome, #{current_user.email}  Guru", class: "nav user"
-      link_to 'Logout', destroy_user_session_path, method: :delete
-    end
-  end
-
 end

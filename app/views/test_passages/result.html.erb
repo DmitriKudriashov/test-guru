@@ -1,4 +1,5 @@
-<h2>The <%= @test_passage.test.title %> Test Completed!</h2>
+<!-- <h2>The <%#= @test_passage.test.title %> Test Completed!</h2> -->
+<h2>The <%= t.('.header', title: @test_passage.test.title) %></h2>
 
 <p class="style_blue">
 

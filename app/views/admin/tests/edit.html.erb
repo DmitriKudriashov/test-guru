@@ -1,8 +1,8 @@
-<h1>Edit test: <%= @test.title %></h1>
+<h1><%= t('.header', title: @test.title ) %></h1>
 <%= render 'form' %>
 
 <p class="style_gray">
-  <%= link_to 'Back to All Tests', tests_path %>
+  <%= link_to t('back_to_all_tests') , admin_tests_path %>
 </p>
 <br>
 <%= render 'admin/questions/list', test: @test %>
