@@ -6,4 +6,11 @@ module TestsHelper
   def test_level(test)
     TEST_LEVELS[test.level] || :hero
   end
+
+  def hello_user
+    return unless current_user
+
+    flash.now[:notice] = "Hello, #{ current_user.first_and_last_name}"
+  end
+
 end

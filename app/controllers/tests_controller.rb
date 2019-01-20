@@ -5,7 +5,6 @@ class TestsController < AuthenticatedController
 #  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-   hello_user
    @tests = Test.all
   end
 
@@ -14,13 +13,4 @@ class TestsController < AuthenticatedController
     current_user.tests.push(@test)
     redirect_to current_user.test_passage(@test)
   end
-
-  private
-
-  def hello_user
-    return unless current_user
-
-    flash.now[:notice] = current_user.first_and_last_name
-  end
-
 end

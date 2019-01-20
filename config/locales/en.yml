@@ -31,6 +31,7 @@
 
 en:
   # common names
+  are_you_sure: "Are you sure"
   actions: "Actions"
   show: "Show"
   edit: "Edit"
@@ -162,6 +163,8 @@ en:
         author: "Author:"
         category: "Category:"
         edit_test: "Edit Test"
+      test:
+        are_you_sure: "YOU ARE SURE ?"
 
     questions:
       answers:

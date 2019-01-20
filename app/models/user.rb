@@ -31,6 +31,6 @@ class User < ApplicationRecord
   end
 
   def first_and_last_name
-    "Hello, #{self.first_name} #{self.last_name}"
+    "#{self.first_name} #{self.last_name}"
   end
 end
