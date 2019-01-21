@@ -1,13 +1,13 @@
 <tr>
 
-  <td class = "celltab100left" ><%= test.title %></td>
-  <td class = "celltab50left"><%= test_level(test) %></td>
-  <td class = "celltab60center"><%= test.category.title %></td>
-  <td class = "celltab100left"><%= test.author.email %></td>
-  <td class = "celltab30center"><%= test.questions.count %></td>
-  <td class = "s_e_d"><%= link_to t('show'), admin_test_path(test) %></td>
-  <td class = "s_e_d"><%= link_to t('edit'), edit_admin_test_path(test) %></td>
-  <td class = "s_e_d">
+  <td><%= test.title %></td>
+  <td><%= test_level(test) %></td>
+  <td><%= test.category.title %></td>
+  <td><%= test.author.email %></td>
+  <td><%= test.questions.count %></td>
+  <td><%= link_to t('show'), admin_test_path(test) %></td>
+  <td><%= link_to t('edit'), edit_admin_test_path(test) %></td>
+  <td>
     <%= link_to  t('delete'),
                 admin_test_path(test),
                 method: :delete,

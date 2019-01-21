@@ -9,11 +9,4 @@ module ApplicationHelper
     link_to 'GitHub', "https://github.com/#{author}/#{repo}", target: '_blank'
   end
 
-  def flash_messages
-    flash.map do |type, msg|
-      content_tag :p, msg, class: "flash #{type}"
-    end
-    .join("\n").html_safe
-  end
-
 end

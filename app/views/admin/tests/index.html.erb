@@ -1,19 +1,26 @@
-<h1> <%= t('.header') %> </h1>
-<p> <%= link_to t('.new_test'), new_admin_test_path %> </p>
+<div class="row justify-content-center mt-1">
+  <div>
+    <h1> <%= t('.header') %> </h1>
+    <p> <%= link_to t('.new_test'), new_admin_test_path %> </p>
 
-<% if @tests.present? %>
-  <table>
-    <tr>
-      <th class = "celltab100"><%= t('.title') %> </th>
-      <th class = "celltab50"><%= t('.level') %> </th>
-      <th class = "celltab60"><%= t('.category') %> </th>
-      <th class = "celltab100"><%= t('.author') %> </th>
-      <th class = "celltab30"><%= t('questions') %> </th>
-      <th colspan="3"><%= t('actions') %></th>
-    </tr>
-    <%= render @tests %>
-  </table>
-<% else %>
-  <p> <%= t('.empty') %> </p>
-<% end %>
-<br>
+    <% if @tests.present? %>
+      <table class="table table-striped card border-primary">
+        <tr>
+          <th class = "col-md-auto"><%= t('.title') %> </th>
+          <th class = "col-md-auto"><%= t('.level') %> </th>
+          <th class = "col-md-auto"><%= t('.category') %> </th>
+          <th class = "col-md-auto"><%= t('.author') %> </th>
+          <th class = "col-md-auto"><%= t('questions') %> </th>
+          <th class = "col-md-auto"></th>
+          <th class = "col-md-auto"><%= t('actions') %></th>
+          <th class = "col-md-auto"></th>
+        </tr>
+        <%= render @tests %>
+      </table>
+    <% else %>
+      <p> <%= t('.empty') %> </p>
+    <% end %>
+    <br>
+  </div>
+</div>
+

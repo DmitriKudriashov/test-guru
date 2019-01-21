@@ -1,16 +1,23 @@
-<h1> <%= t('.header') %> </h1>
-<%= hello_user %>
-<% if @tests.present? %>
-  <table>
-    <tr>
-      <th class = "celltab100"><%= t('.title') %></th>
-      <th class = "celltab50"><%= t('.level') %></th>
-      <th class = "celltab60"><%= t('.category') %></th>
-      <th class = "celltab30"><%= t('.questions') %></th>
-    </tr>
-    <%= render @tests %>
-  </table>
-<% else %>
-  <p><%= t('.empty') %></p>
-<% end %>
-<br>
+<div class="row justify-content-center mt-1">
+  <div class="col col-md-20">
+    <h1> <%= t('.header') %> </h1>
+    <div class="alert alert-info">
+    </div>
+    <% if @tests.present? %>
+      <table class="table table-striped ">
+        <thead class="thead-dark">
+          <tr>
+            <th class = "col-md-auto"><%= t('.title') %></th>
+            <th class = "col-md-auto"><%= t('.level') %></th>
+            <th class = "col-md-auto"><%= t('.category') %></th>
+            <th class = "col-md-auto"><%= t('.questions') %></th>
+          </tr>
+        </thead>
+        <%= render @tests %>
+      </table>
+    <% else %>
+      <p><%= t('.empty') %></p>
+    <% end %>
+    <br>
+  </div>
+</div>
