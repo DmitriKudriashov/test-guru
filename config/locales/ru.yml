@@ -8,6 +8,7 @@ ru:
   questions: "Вопросы"
   back: "Возврат"
   back_to_all_tests: "Возврат ко всем тестам"
+  gist_description: "Вопрос по теме: %{title}"
 
   helpers:
     submit:
@@ -181,5 +182,12 @@ ru:
         answer: "Ответ:"
         correct: "Верный:"
         question: "Вопрос: %{body}"
+
+    gists:
+      index:
+        header: "Список Gists"
+        question: "Вопрос"
+        user: "Пользователь"
+        url: "Ссылка"
 
 

@@ -1,9 +1,5 @@
 <h2>Pass the <%= @test_passage.test.title %> Test</h2>
 
-<!-- <p>
-  <b> <%#= @test_passage.current_question.body %> </b>
-</p>
- -->
 <% if @test_passage.test.questions.count.zero? %>
 
   <p class="bad" >  No questions added to this test yet!  </p>

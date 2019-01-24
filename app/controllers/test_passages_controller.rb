@@ -9,10 +9,16 @@ class TestPassagesController < ApplicationController
   def result; end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-    flash_options = result ? { notice: t('.success', url: result[:html_url]) } : { alert: t('.failure')}
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.gist_create
+    if result.nil?
+      flash_message = { alert: t('.failure')}
+    else
+      current_user.gists.create(question: @test_passage.current_question, url: result.html_url)
+      flash_message = { notice: t('.success', url: result[:html_url]) }
+    end
 
-    redirect_to @test_passage, flash_options
+    redirect_to @test_passage, flash_message
   end
 
   def update

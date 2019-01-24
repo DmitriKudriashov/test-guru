@@ -6,19 +6,21 @@ class GistQuestionService
     @client = client || GitHubClient.new
   end
 
-  def call
+  def gist_create
     @client.create_gist(gist_params)
+  rescue StandardError
+    nil
   end
 
   private
 
   def gist_params
     {
-      "description": "A question about #{@test.title} from TestGuru",
-      "public": true,
-      "files": {
+      description: I18n.t('gist_description', title: @test.title),
+      public: false,
+      files: {
         "test-guru-question.txt": {
-          "content": gist_content
+          content: gist_content
         }
       }
     }
@@ -31,3 +33,4 @@ class GistQuestionService
   end
 
 end
+

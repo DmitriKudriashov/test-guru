@@ -1,0 +1,14 @@
+<h3><%= t('.title') %></h3>
+<table class="table table-striped table-bordered">
+  <thead class="thead-dark" align="center">
+    <th><%= t('.user') %></th>
+    <th><%= t('.question') %></th>
+    <th><%= t('.url') %></th>
+  </thead>
+
+  <tbody>
+    <%= render @gists %>
+  </tbody>
+</table>
+
+<%= link_to t('back'), admin_tests_path %>
