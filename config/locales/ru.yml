@@ -80,8 +80,9 @@ ru:
         one: "Обнаружено %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
 
-    navigation:
+    nav:
       test_guru: "Тест Гуру"
+      admin_test_guru: "ТестГуру (для Админа)"
       hello: "Добро пожаловать, гуру %{user} "
       logout: "Выход"
       login: "Вход"
@@ -113,7 +114,7 @@ ru:
     nav:
       hello: "Добро пожаловать, гуру %{user} "
       panel: "Панель Администратора"
-      welcome: "Привет, гуру: "
+      welcome: "Привет, гуру: %{user} "
       email: "%{user_email}"
       logout: "Выход"
 

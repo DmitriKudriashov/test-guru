@@ -10,10 +10,10 @@ module ApplicationHelper
   end
 
   def flash_messages
-    flash.map do |type, msg|
-      content_tag :p, msg, class: "flash #{type}"
+    flash.map do |key, message|
+      key = key == 'alert' ? 'danger' : 'info'
+      content_tag :div, message, class: "alert alert-#{key}"
     end
     .join("\n").html_safe
   end
-
 end

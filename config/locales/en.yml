@@ -102,8 +102,9 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
-    navigation:
+    nav:
       test_guru: "Test Guru"
+      admin_test_guru: "TestGuru (for Admin)"
       hello: "Hello, guru %{user} "
       logout: "Logout"
       login: "Login"
@@ -133,7 +134,7 @@ en:
     nav:
       hello: "Hello! guru %{user} "
       panel: "Test Guru Admin Panel"
-      welcome: "Welcome, Guru: "
+      welcome: "Welcome, Guru: %{user} "
       email: "%{user_email}"
       logout: "Logout"
 

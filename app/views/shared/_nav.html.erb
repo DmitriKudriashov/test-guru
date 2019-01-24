@@ -1,0 +1,24 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to t('.test_guru'), tests_path, class: 'navbar-brand' %>
+
+  <% if current_user && current_user.admin? %>
+    <%= link_to t('.admin_test_guru'), admin_tests_path, class: 'navbar-brand' %>
+  <% end %>
+
+  <span class="navbar-text">
+
+  <% if user_signed_in? %>
+    <%= t('.hello', user: " #{current_user.first_and_last_name}  (#{current_user.email}) ") %>
+    <p><%= link_to t('.logout'), destroy_user_session_path, method: :delete, data: { confirm: t('are_you_sure') } %> </p>
+
+  <% else %>
+
+    <p>
+      <%= link_to t('.login'), new_user_session_path %>
+      <%= link_to t('.signup'), new_user_registration_path %>
+    </p>
+
+  <% end %>
+
+  </span>
+</nav>
