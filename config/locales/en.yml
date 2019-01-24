@@ -124,9 +124,9 @@ en:
 
   test_passages:
     result:
-      header: "Тest %(title) successfully finished!"
+      header: "Тest %{title} successfully finished!"
     gist:
-      success: "Gist was successfully created!"
+      success: "Gist %{url} was successfully created!"
       failure: "An error occurred while saving gist"
 
   test_mailer:
@@ -200,7 +200,4 @@ en:
         answer: "Answer:"
         correct: "Correct:"
         question: "Question: %{body}"
-
-
-
 
