@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
   resources :tests do
-    get :start, on: :member
+    post :start, on: :member
   end
 
   resources :test_passages, only: %i[show update] do

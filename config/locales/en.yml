@@ -128,7 +128,7 @@ en:
       header: "Тest %{title} successfully finished!"
     gist:
       success: "Gist %{url} was successfully created!"
-      failure: "An error occurred while saving gist"
+      failure: "An %{error} occurred while saving gist"
 
   test_mailer:
     completed_test:

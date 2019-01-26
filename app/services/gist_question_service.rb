@@ -1,15 +1,23 @@
 class GistQuestionService
 
+  attr_reader :client, :error_message # for byebug
+
   def initialize(question, client: nil)
     @question = question
     @test = @question.test
-    @client = client || GitHubClient.new
+    @client = client || Octokit::Client.new(access_token: ENV['GITHUB_TOKEN'])
   end
 
-  def gist_create
-    @client.create_gist(gist_params)
-  rescue StandardError
-    nil
+  def create_gist_on_github
+    client.create_gist(gist_params)
+  rescue StandardError => e
+    @error_message = e.message
+  end
+
+  def message_to_flash
+    if error_message.index("401 - Bad credentials")
+      "Error: ( Not access to Gist on GitHub ) "
+    end
   end
 
   private
