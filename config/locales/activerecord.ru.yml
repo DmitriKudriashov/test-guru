@@ -3,6 +3,7 @@ ru:
     models:
       test: "Тест"
       user: "Пользователь"
+      question: "Вопрос"
 
     attributes:
       test:

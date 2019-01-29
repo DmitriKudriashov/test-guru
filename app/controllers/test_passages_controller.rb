@@ -2,12 +2,23 @@
 
 class TestPassagesController < ApplicationController
 
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show; end
 
-  def result
+  def result; end
 
+  def gist
+    service = GistQuestionService.new(@test_passage.current_question)
+    result = service.create_gist_on_github
+    if service.error_message
+      flash_message = { alert: t('.failure', error: service.message_to_flash ) }
+    else
+      current_user.gists.create(question: @test_passage.current_question, url: result.html_url)
+      flash_message = { notice: t('.success', url: result[:html_url]) }
+    end
+
+    redirect_to @test_passage, flash_message
   end
 
   def update

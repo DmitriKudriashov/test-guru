@@ -8,6 +8,7 @@ ru:
   questions: "Вопросы"
   back: "Возврат"
   back_to_all_tests: "Возврат ко всем тестам"
+  gist_description: "Вопрос по теме: %{title}"
 
   helpers:
     submit:
@@ -104,7 +105,10 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %(title) успешно завершен!"
+      header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "Gist %{url} успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка %{error} "
 
   test_mailer:
     completed_test:
@@ -178,5 +182,12 @@ ru:
         answer: "Ответ:"
         correct: "Верный:"
         question: "Вопрос: %{body}"
+
+    gists:
+      index:
+        header: "Список Gists"
+        question: "Вопрос"
+        user: "Пользователь"
+        url: "Ссылка"
 
 

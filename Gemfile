@@ -43,6 +43,13 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise', '~> 4.0'
 
+# NETWORKING
+
+gem "octokit", "~> 4.0"
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+
 # LOCALIZATION
 
 gem 'rails-i18n', '~> 5.1'
@@ -52,6 +59,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # UI
 gem 'jquery-rails'
+
 gem 'bootstrap', '~> 4.2.1'
 
 group :development, :test do
@@ -80,3 +88,6 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'i18n-tasks'
+gem 'pry'
+gem 'pry-rails'
+gem 'pry-byebug'

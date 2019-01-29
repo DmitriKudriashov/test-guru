@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-l navbar-dark bg-primary">
   <%= link_to 'TestGuru', tests_path, class: 'navbar-brand' %>
+  <%= link_to 'Gists', admin_gists_path, class: 'navbar-brand'%>
+
   <span class='navbar-brand'>
     <b> <%= t('.panel')%></b><br>
       <%= t('.welcome', user: " #{current_user.first_and_last_name}") %>
@@ -8,5 +10,3 @@
     <%= link_to t('.logout') , destroy_user_session_path, method: :delete, data: { confirm: t('are_you_sure') }, class: 'navbar-brand' %>
   </span>
 </nav>
-
-

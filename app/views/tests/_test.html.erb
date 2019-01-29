@@ -4,7 +4,6 @@
   <td><%= test.category.title %></td>
   <td><%= test.questions.count %></td>
   <td>
-    <%= link_to t('.start'), start_test_path(test), class: 'btn btn-primary' %>
+    <%= link_to t('.start'), start_test_path(test), method: :post, class: 'btn btn-primary' %>
   </td>
 </tr>
-
