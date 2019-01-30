@@ -6,17 +6,18 @@ document.addEventListener('turbolinks:load', function() {
 
 function passwordConfirmationCheck() {
   var password = document.getElementById('user_password')
+  var passwordConfirmation = document.getElementById('#user_password_confirmation')
+
   if (!this.value.length) {
     document.querySelector('.octicon-alert').classList.add('hide')
     document.querySelector('.octicon-check').classList.add('hide')
   }
-
-  if (this.value == password.value) {
-    document.querySelector('.octicon-alert').classList.add('hide')
-    document.querySelector('.octicon-check').classList.remove('hide')
-  } else {
-    document.querySelector('.octicon-alert').classList.remove('hide')
-    document.querySelector('.octicon-check').classList.add('hide')
-  }
+  else
+    if (this.value == password.value) {
+      document.querySelector('.octicon-alert').classList.add('hide')
+      document.querySelector('.octicon-check').classList.remove('hide')
+    } else {
+      document.querySelector('.octicon-alert').classList.remove('hide')
+      document.querySelector('.octicon-check').classList.add('hide')
+    }
 }
-
