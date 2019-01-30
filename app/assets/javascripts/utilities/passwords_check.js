@@ -6,7 +6,6 @@ document.addEventListener('turbolinks:load', function() {
 
 function passwordConfirmationCheck() {
   var password = document.getElementById('user_password')
-  var passwordConfirmation = document.getElementById('#user_password_confirmation')
 
   if (!this.value.length) {
     document.querySelector('.octicon-alert').classList.add('hide')
