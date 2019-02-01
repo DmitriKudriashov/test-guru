@@ -136,6 +136,8 @@ ru:
         author: "Автор"
         questions: "Вопросы"
         empty: "Список тестов пустой!"
+      form_inline:
+        submit: "OK"
       form:
         prompt: "Пожалуйста, выберите категорию"
       new:

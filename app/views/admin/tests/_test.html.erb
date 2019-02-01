@@ -1,12 +1,23 @@
 <tr>
 
-  <td><%= test.title %></td>
+  <td class="align-middle">
+    <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
+<!--    <span class="test-title"  data-test-id="<%#= test.id %>"><%#= test.title %></span>-->
+    <%# binding.pry %>
+    <%= render 'form_inline',method: :patch, test: test == @test ? @test : test %>
+  </td>
+
   <td><%= test_level(test) %></td>
   <td><%= test.category.title %></td>
   <td><%= test.author.email %></td>
   <td><%= test.questions.count %></td>
   <td><%= link_to t('show'), admin_test_path(test) %></td>
-  <td><%= link_to t('edit'), edit_admin_test_path(test) %></td>
+  <td><%= link_to t('edit'),
+                  edit_admin_test_path(test),
+                  data: { test_id: test.id },
+                  class: 'form-inline-link' %>
+  </td>
+
   <td>
     <%= link_to  t('delete'),
                 admin_test_path(test),
