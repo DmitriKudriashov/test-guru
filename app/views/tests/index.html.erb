@@ -1,23 +1,28 @@
 <div class="row justify-content-center mt-1">
   <div class="col col-md-20">
-    <h1> <%= t('.header') %> </h1>
-    <div class="alert alert-info">
-    </div>
-    <% if @tests.present? %>
-      <table class="table table-striped ">
-        <thead class="thead-dark">
-          <tr>
-            <th class = "col-md-auto"><%= t('.title') %></th>
-            <th class = "col-md-auto"><%= t('.level') %></th>
-            <th class = "col-md-auto"><%= t('.category') %></th>
-            <th class = "col-md-auto"><%= t('.questions') %></th>
-          </tr>
-        </thead>
-        <%= render @tests %>
-      </table>
-    <% else %>
-      <p><%= t('.empty') %></p>
-    <% end %>
+    <h1><%= t('.header') %> </h1>
+    <div class="alert alert-info"></div>
+      <% if @tests.present? %>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th class="sort-by-title pointer col-md-auto">
+                <%= t('.title') %>
+                <%= octicon 'arrow-up', class: 'text-success hide ' %>
+                <%= octicon 'arrow-down' , class: 'text-success hide ' %>
+              </th>
+              <th class = "col-md-auto"><%= t('.level') %></th>
+              <th class = "col-md-auto"><%= t('.category') %></th>
+              <th class = "col-md-auto"><%= t('.questions') %></th>
+            </tr>
+          </thead>
+          <%= render @tests %>
+        </table>
+      <% else %>
+        <p>
+          <%= t('.empty') %>
+        </p>
+      <% end %>
     <br>
   </div>
 </div>
