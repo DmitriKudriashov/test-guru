@@ -22,6 +22,17 @@ class TestPassagesController < ApplicationController
   end
 
   def update
+    if params[:answer_ids].nil?
+       flash_message = { alert: 'You should make a choice answer!' }
+       redirect_to @test_passage, flash_message
+    else
+      update!
+    end
+  end
+
+  private
+
+  def update!
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
@@ -31,9 +42,8 @@ class TestPassagesController < ApplicationController
     end
   end
 
-  private
-
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
+
 end
