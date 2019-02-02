@@ -2,11 +2,19 @@
 
 <p class="style_blue">
   Total questions: <%= @test_passage.total_questions %>
-</p><br>
-
+</p>
+<br>
 <p class=<%= "#{result_status[:value]}"%> >
    <%= "#{result_status[:message]}" %>
 </p><br>
+
+<div class="progress-block">
+  <div class="progress-bar <%= result_status[:style] %> "
+    style="width: <%= @test_passage.correctly_percent %>%"
+    aria-valuenow="<%= @test_passage.correctly_percent %>"
+    aria-valuemin="0" aria-valuemax="100">
+  </div>
+</div>
 
 <p class="style_gray">
   <%= link_to 'Back to All Tests', tests_path %>

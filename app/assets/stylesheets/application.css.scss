@@ -3,3 +3,26 @@
 @import "typography/icons";
 @import "global";
 
+
+.progress-block {
+  background-color: aqua;
+  height: 10px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+
+.progress-bar {
+  height: 10px;
+  background-color: blue;
+}
+
+.test-successfully{
+  height: 10px;
+  background-color: blue;
+}
+
+.test-failed{
+  height: 10px;
+  background-color: red;
+}
