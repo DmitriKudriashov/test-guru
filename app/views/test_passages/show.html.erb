@@ -2,10 +2,9 @@
 
 <div class="progress-block">
   <%= content_tag :div, '', class: 'progress-bar',
-                  data: {
-                    current_question: @test_passage.current_question_position,
-                    all_questions: @test_passage.test.questions.size
-                  } %>
+                  data:
+                    { current_question: @test_passage.current_question_position,
+                    all_questions: @test_passage.test.questions.size} %>
 </div>
 <br>
 <% if @test_passage.test.questions.count.zero? %>
