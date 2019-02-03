@@ -2,15 +2,7 @@
 
 # 1) users
 users = User.create([{ first_name: 'Firstname1', last_name: 'Lastname1',
-                       login: 'login1', password: 'password1', email: 'a1@b.c' },
-                     { first_name: 'Firstname2', last_name: 'Lastname2',
-                       login: 'login2', password: 'password2', email: 'a2@b.c' },
-                     { first_name: 'Firstname3', last_name: 'Lastname3',
-                       login: 'login3', password: 'password3', email: 'a3@b.c' },
-                     { first_name: 'Firstname4', last_name: 'Lastname4',
-                       login: 'login4', password: 'password4', email: 'a4@b.c' },
-                     { first_name: 'Firstname5', last_name: 'Lastname5',
-                       login: 'login5', password: 'password5', email: 'a5@b.c' }])
+                       login: 'login1', password: 'password1', email: 'a1@b.c' }])
 users.each do |t|
   t.email = "#{t.first_name}.#{t.last_name}@gmail.com"
   t.save
