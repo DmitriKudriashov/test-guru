@@ -4,8 +4,12 @@
 
   <p>
     <%= form.label :title %>
+  </p>
+
+  <p class='test-title', data-test-id="<%= @test.id %>" >
     <%= form.text_field :title %>
   </p>
+
   <p>
     <%= form.label :level %>
     <%= form.collection_select :level, TestsHelper::TEST_LEVELS, :first, :last, {selected: @test.level} %>

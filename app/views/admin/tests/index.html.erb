@@ -1,7 +1,10 @@
 <div class="row justify-content-center mt-1">
   <div>
     <h1> <%= t('.header') %> </h1>
+
     <p> <%= link_to t('.new_test'), new_admin_test_path %> </p>
+
+    <%= render 'shared/errors', resource: @test %>
 
     <% if @tests.present? %>
       <table class="table table-striped card border-primary">
