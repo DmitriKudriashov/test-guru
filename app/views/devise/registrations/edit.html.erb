@@ -41,6 +41,11 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :type %> (User or Admin) <br />
+    <%= f.tex_field :type %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
