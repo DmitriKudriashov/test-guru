@@ -19,14 +19,14 @@ categories = Category.create([{ title: 'Category1' },
                               { title: 'Category6' },
                               { title: 'Category7' }])
 # 3) tests
-tests = Test.create([{ title: 'Test1', level: 1, category: categories[0], author_id: users[0] },
-                     { title: 'Test2', level: 1, category: categories[0], author_id: users[0] },
-                     { title: 'Test3', level: 2, category: categories[1], author_id: users[0] },
-                     { title: 'Test4', level: 2, category: categories[2], author_id: users[0] },
-                     { title: 'Test5', level: 3, category: categories[3], author_id: users[0] },
-                     { title: 'Test6', level: 3, category: categories[4], author_id: users[0] },
-                     { title: 'Test7', level: 4, category: categories[5], author_id: users[0] },
-                     { title: 'Test8', level: 4, category: categories[6], author_id: users[0] }])
+tests = Test.create([{ title: 'Test1', level: 1, category: categories[0], author_id: users[0].id },
+                     { title: 'Test2', level: 1, category: categories[0], author_id: users[0].id },
+                     { title: 'Test3', level: 2, category: categories[1], author_id: users[0].id },
+                     { title: 'Test4', level: 2, category: categories[2], author_id: users[0].id },
+                     { title: 'Test5', level: 3, category: categories[3], author_id: users[0].id },
+                     { title: 'Test6', level: 3, category: categories[4], author_id: users[0].id },
+                     { title: 'Test7', level: 4, category: categories[5], author_id: users[0].id },
+                     { title: 'Test8', level: 4, category: categories[6], author_id: users[0].id }])
 # 4) questions
 questions = Question.create([{ body: 'Question1', test: tests[0] },
                              { body: 'Question2', test: tests[0] },
