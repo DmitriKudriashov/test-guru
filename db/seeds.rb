@@ -4,11 +4,11 @@ Answer.delete_all
 Question.delete_all
 Test.delete_all
 Category.delete_all
-User.delete_all
+# User.delete_all
 
 # 1) users
-users = User.create([{ first_name: 'Dmitriy', last_name: 'Kudryashov',
-                       login: 'tokds', password: 'kds.120731', email: 'kds.120731@gmail.com', type: 'Admin' }])
+# users = User.create([{ first_name: 'Test', last_name: 'Guruproject',
+#                        login: 'testguruproject@gmail.com', password: 'testguru', email: 'testguruproject@gmail.com', type: 'Admin' }])
 
 # 2) category
 categories = Category.create([{ title: 'Category1' },
