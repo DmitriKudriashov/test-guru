@@ -1,30 +1,32 @@
 # frozen_string_literal: true
+TestPassage.delete_all
+Answer.delete_all
+Question.delete_all
+Test.delete_all
+Category.delete_all
+User.delete_all
 
 # 1) users
-users = User.create([{ first_name: 'Firstname1', last_name: 'Lastname1',
-                       login: 'login1', password: 'password1', email: 'a1@b.c', type: 'Admin' }])
-users.each do |t|
-  t.email = "#{t.first_name}.#{t.last_name}@gmail.com"
-  t.save
-end
+users = User.create([{ first_name: 'Dmitriy', last_name: 'Kudryashov',
+                       login: 'tokds', password: 'kds.120731', email: 'kds.120731@gmail.com', type: 'Admin' }])
 
 # 2) category
-categories = Category.create([{ title: 'Category 1' },
-                              { title: 'Category 2' },
-                              { title: 'Category 3' },
-                              { title: 'Category 4' },
-                              { title: 'Category 5' },
-                              { title: 'Category 6' },
-                              { title: 'Category 7' }])
+categories = Category.create([{ title: 'Category1' },
+                              { title: 'Category2' },
+                              { title: 'Category3' },
+                              { title: 'Category4' },
+                              { title: 'Category5' },
+                              { title: 'Category6' },
+                              { title: 'Category7' }])
 # 3) tests
-tests = Test.create([{ title: 'Test1', level: 1, category: categories[0], author_id: 1 },
-                     { title: 'Test2', level: 1, category: categories[0], author_id: 1 },
-                     { title: 'Test3', level: 2, category: categories[1], author_id: 1 },
-                     { title: 'Test4', level: 2, category: categories[2], author_id: 1 },
-                     { title: 'Test5', level: 3, category: categories[3], author_id: 1 },
-                     { title: 'Test6', level: 3, category: categories[4], author_id: 1 },
-                     { title: 'Test7', level: 4, category: categories[5], author_id: 1 },
-                     { title: 'Test8', level: 4, category: categories[6], author_id: 1 }])
+tests = Test.create([{ title: 'Test1', level: 1, category: categories[0], author_id: users[0] },
+                     { title: 'Test2', level: 1, category: categories[0], author_id: users[0] },
+                     { title: 'Test3', level: 2, category: categories[1], author_id: users[0] },
+                     { title: 'Test4', level: 2, category: categories[2], author_id: users[0] },
+                     { title: 'Test5', level: 3, category: categories[3], author_id: users[0] },
+                     { title: 'Test6', level: 3, category: categories[4], author_id: users[0] },
+                     { title: 'Test7', level: 4, category: categories[5], author_id: users[0] },
+                     { title: 'Test8', level: 4, category: categories[6], author_id: users[0] }])
 # 4) questions
 questions = Question.create([{ body: 'Question1', test: tests[0] },
                              { body: 'Question2', test: tests[0] },
@@ -43,36 +45,51 @@ questions = Question.create([{ body: 'Question1', test: tests[0] },
                              { body: 'Question15', test: tests[7] },
                              { body: 'Question16', test: tests[7] }])
 # 5) answers
-Answer.create([{ body: 'Answer 1.1', question: questions[0] },
-               { body: 'Answer 1.2', question: questions[0] },
-               { body: 'Answer 1.1', question: questions[1] },
-               { body: 'Answer 2.1', question: questions[1] },
-               { body: 'Answer 2.2', question: questions[2] },
-               { body: 'Answer 3.1', question: questions[2] },
-               { body: 'Answer 3.2', question: questions[3] },
-               { body: 'Answer 4.1', question: questions[3] },
-               { body: 'Answer 4.2', question: questions[4] },
-               { body: 'Answer 5.1', question: questions[4] },
-               { body: 'Answer 5.2', question: questions[5] },
-               { body: 'Answer 6.1', question: questions[5] },
-               { body: 'Answer 6.2', question: questions[6] },
-               { body: 'Answer 7.1', question: questions[6] },
-               { body: 'Answer 7.2', question: questions[7] },
-               { body: 'Answer 8.1', question: questions[7] },
-               { body: 'Answer 8.2', question: questions[8] },
-               { body: 'Answer 9.1', question: questions[8] },
-               { body: 'Answer 9.2', question: questions[9] },
-               { body: 'Answer 10.1', question: questions[9] },
-               { body: 'Answer 10.2', question: questions[9] },
-               { body: 'Answer 11.1', question: questions[10] },
-               { body: 'Answer 11.2', question: questions[10] },
-               { body: 'Answer 12.1', question: questions[11] },
-               { body: 'Answer 12.2', question: questions[11] },
-               { body: 'Answer 13.1', question: questions[12] },
-               { body: 'Answer 13.2', question: questions[12] },
-               { body: 'Answer 14.2', question: questions[13] },
-               { body: 'Answer 14.1', question: questions[13] },
-               { body: 'Answer 15.1', question: questions[14] },
-               { body: 'Answer 15.2', question: questions[14] },
-               { body: 'Answer 16.1', question: questions[15] },
-               { body: 'Answer 16.2', question: questions[15] }])
+Answer.create([{ body: 'Answer 1.1 correct', question: questions[0], correct: true },
+               { body: 'Answer 1.2', question: questions[0], correct: false },
+
+               { body: 'Answer 2.1', question: questions[1], correct: false },
+               { body: 'Answer 2.1 correct', question: questions[1], correct: true },
+
+               { body: 'Answer 3.1 correct', question: questions[2], correct: true },
+               { body: 'Answer 3.2', question: questions[2], correct: false },
+
+               { body: 'Answer 4.1', question: questions[3], correct: false },
+               { body: 'Answer 4.2 correct', question: questions[3], correct: true },
+
+               { body: 'Answer 5.1', question: questions[4], correct: false },
+               { body: 'Answer 5.2 correct', question: questions[4], correct: true },
+
+               { body: 'Answer 6.1 correct', question: questions[5], correct: true },
+               { body: 'Answer 6.2', question: questions[5], correct: false },
+
+               { body: 'Answer 7.1 correct', question: questions[6], correct: true },
+               { body: 'Answer 7.2', question: questions[6], correct: false },
+
+               { body: 'Answer 8.1 correct', question: questions[7], correct: true },
+               { body: 'Answer 8.2', question: questions[7], correct: false },
+
+               { body: 'Answer 9.1 correct', question: questions[8], correct: true },
+               { body: 'Answer 9.2', question: questions[8], correct: false },
+
+               { body: 'Answer 10.1', question: questions[9], correct: false },
+               { body: 'Answer 10.2 correct', question: questions[9], correct: true },
+               { body: 'Answer 10.3', question: questions[9], correct: false },
+
+               { body: 'Answer 11.1 correct', question: questions[10], correct: true },
+               { body: 'Answer 11.2', question: questions[10], correct: false },
+
+               { body: 'Answer 12.1', question: questions[11], correct: false },
+               { body: 'Answer 12.2 correct', question: questions[11], correct: true },
+
+               { body: 'Answer 13.1', question: questions[12], correct: false },
+               { body: 'Answer 13.2 correct', question: questions[12], correct: true },
+
+               { body: 'Answer 14.2', question: questions[13], correct: false },
+               { body: 'Answer 14.1 correct', question: questions[13], correct: true },
+
+               { body: 'Answer 15.1', question: questions[14], correct: false },
+               { body: 'Answer 15.2 correct', question: questions[14], correct: true },
+
+               { body: 'Answer 16.1', question: questions[15], correct: false },
+               { body: 'Answer 16.2 correct', question: questions[15], correct: true }])
