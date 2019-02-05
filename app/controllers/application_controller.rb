@@ -11,11 +11,15 @@ class ApplicationController < ActionController::Base
     I18n.locale == I18n.default_locale ? {} : { lang: I18n.locale }
   end
 
+  def feedback_send
+    FeedbackMailer.send_feedback(params).deliver_now
+    redirect_to root_path
+  end
+
   private
 
   def set_locale
     I18n.locale = I18n.locale_available?(params[:lang]) ? params[:lang] : I18n.default_locale
-    # I18n.locale = session[:locale] || I18n.default_locale  # check it for session !
   end
 
   def permitted_parameters
