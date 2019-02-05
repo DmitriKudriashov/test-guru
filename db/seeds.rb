@@ -10,6 +10,8 @@ Category.delete_all
 # users = User.create([{ first_name: 'Test', last_name: 'Guruproject',
 #                        login: 'testguruproject@gmail.com', password: 'testguru', email: 'testguruproject@gmail.com', type: 'Admin' }])
 
+  users = User.all
+
 # 2) category
 categories = Category.create([{ title: 'Category1' },
                               { title: 'Category2' },
