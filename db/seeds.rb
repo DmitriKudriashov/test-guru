@@ -10,7 +10,7 @@ Category.delete_all
 # users = User.create([{ first_name: 'Test', last_name: 'Guruproject',
 #                        login: 'testguruproject@gmail.com', password: 'testguru', email: 'testguruproject@gmail.com', type: 'Admin' }])
 
-admin_id = User.all.first.id
+admin_id = User.all.last.id
 
 # 2) category
 categories = Category.create([{ title: 'Backend' },
