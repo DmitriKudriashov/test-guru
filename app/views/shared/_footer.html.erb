@@ -1,17 +1,14 @@
 <div class="footer" align="center">
+  <%= link_to 'FeedBack', feedback_path %>
   <hr>
   <p>
     <%= "Year: #{current_year} " %>,
     author: DmitriKudriashov,
-    Project:<%= github_url('DmitriKudriashov','test-guru') %>
-  <p>
+    Project:<%= github_url('DmitriKudriashov','test-guru') %><br>
     A project for an application in which various tests are created.
     And also the execution of these tests
   </p>
+  <p>
     <%= link_to "Learning project at Thinknetica online school", "https://thinknetica.com", target: '_blank' %>
   </p>
-  <p>
-    <%= link_to 'FeedBack', feedback_path %>
-  </p>
-
 </div>
