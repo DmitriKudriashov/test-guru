@@ -105,7 +105,7 @@ ru:
 
   test_passages:
     result:
-      header: "Тест %{title} успешно завершен!"
+      header: "Тест %{title} завершен!"
     gist:
       success: "Gist %{url} успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка %{error} "
