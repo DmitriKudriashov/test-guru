@@ -42,9 +42,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :type %> (User or Admin) <br />
-    <%= f.tex_field :type %>
+    <%= f.label :type %>  <br />
+    <%= f.collection_select :type, {'User' => 'user', 'Admin' => 'admin'}, :first, :last, {selected: 'user'} %>
   </div>
+  <br>
 
   <div class="actions">
     <%= f.submit "Update" %>
