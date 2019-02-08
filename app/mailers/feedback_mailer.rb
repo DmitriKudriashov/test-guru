@@ -1,11 +1,13 @@
 class FeedbackMailer < ApplicationMailer
 
   def send_feedback(params)
+    return unless params[:feedback].presence
+
     @feedback = params[:feedback]
-    return if @feedback.to_s.empty?
+
+    return unless params[:name].presence
 
     @name = params[:name]
-    return if @name.to_s.empty?
 
     mail to: Admin.first.first_admin.email
   end
