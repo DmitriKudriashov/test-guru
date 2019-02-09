@@ -1,6 +1,7 @@
 class FeedbackMailer < ApplicationMailer
 
   def send_feedback(params)
+
     return unless params[:feedback].presence
 
     @feedback = params[:feedback]
