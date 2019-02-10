@@ -8,6 +8,10 @@ class TestPassagesController < ApplicationController
 
   def result; end
 
+
+
+
+
   def gist
     service = GistQuestionService.new(@test_passage.current_question)
     result = service.create_gist_on_github
@@ -37,8 +41,19 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
       redirect_to result_test_passage_path(@test_passage)
+      assign_badge
     else
       render :show
+    end
+  end
+
+  def assign_badge
+    if @test_passage.test_passed?
+      @badges = BadgeGivings.new(@test_passage).get_badges
+      if @badges.present?
+        current_user.badges.push(@badges)
+        flash[:notice] = 'You have been assigned a new bage !'
+      end
     end
   end
 

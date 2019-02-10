@@ -1,0 +1,15 @@
+<p>
+ Badge: <%= @badge.name %>
+</p>
+<p>
+ File: <%= @badge.file_image %>
+</p>
+<p>
+  Level: <%= @badge.level %>
+</p>
+<p>
+  Rule: <%= @badge.rule %>
+</p>
+
+<%= link_to t('edit'), edit_admin_badge_path(@badge) %> |
+<%= link_to t('back'), admin_badges_path %>

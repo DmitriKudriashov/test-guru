@@ -41,6 +41,7 @@ en:
   back_to_all_tests: "Back to All Tests"
   gist_description: "The question of %{title} "
 
+
   helpers:
     submit:
       test:
