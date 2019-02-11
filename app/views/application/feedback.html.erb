@@ -1,0 +1,7 @@
+<%= form_with url: send_feedback_path, local: true, class: 'form-group' do |f| %>
+  You name: <br>
+  <%= f.text_field :name, class: 'form-control'%>
+  Message: <br>
+  <%= f.text_area :feedback, rows: 7, cols: 60, class: 'form-control' %><br>
+  <%= f.submit 'Send message', class: 'btn btn-primary'  %>
+<% end %>

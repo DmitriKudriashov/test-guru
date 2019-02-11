@@ -1,6 +1,7 @@
-<h3> question No: <%= question_position %> </h3>
-<p><%= @test_passage.current_question.body %></p>
-
+<h4> question No: <%= question_position %> </h4>
+<h3>
+  <p><%= @test_passage.current_question.body %></p>
+</h3>
 <% if  @test_passage.current_question.answers.count.zero? %>
 
   <p class="bad" > No answers added to this question yet!  </p>

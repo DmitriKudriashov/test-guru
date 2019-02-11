@@ -3,11 +3,11 @@
 module TestPassagesHelper
   def result_status
     if @test_passage.test_passed?
-      { value: 'ok',
+      { value: 'test-ok',
       message: "Test #{@test_passage.correctly_percent} % ! Successfully Completed!",
       style: 'test-successfully' }
     else
-      { value: 'bad',
+      { value: 'test-bad',
       message: "Test Fail! Only #{@test_passage.correctly_percent} %! Try again!",
       style: 'test-failed' }
     end

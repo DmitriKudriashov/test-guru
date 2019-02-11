@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-class TestsController < AuthenticatedController
+class TestsController < AuthenticatedController #ApplicationController
+
+  before_action :authenticate_user!
 
   def index
    @tests = Test.all
