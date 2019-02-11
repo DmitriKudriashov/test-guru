@@ -78,7 +78,7 @@ ru:
 
     nav:
       test_guru: "Тест Гуру"
-      admin_test_guru: "ТестГуру (для Админа)"
+      admin_test_guru: "Панель Администратора"
       hello: "Добро пожаловать, гуру %{user} "
       logout: "Выход"
       login: "Вход"

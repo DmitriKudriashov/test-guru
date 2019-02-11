@@ -8,10 +8,6 @@ class TestPassagesController < ApplicationController
 
   def result; end
 
-
-
-
-
   def gist
     service = GistQuestionService.new(@test_passage.current_question)
     result = service.create_gist_on_github
@@ -27,8 +23,8 @@ class TestPassagesController < ApplicationController
 
   def update
     if params[:answer_ids].nil?
-       flash_message = { alert: 'You should make a choice answer!' }
-       redirect_to @test_passage, flash_message
+      flash_message = { alert: 'You should make a choice answer!' }
+      redirect_to @test_passage, flash_message
     else
       update!
     end
@@ -40,25 +36,15 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
-      redirect_to result_test_passage_path(@test_passage)
-      assign_badge
-    else
-      render :show
-    end
-  end
+      BadgesGiving.new(@test_passage).assign_badges_to_user
 
-  def assign_badge
-    if @test_passage.test_passed?
-      @badges = BadgeGivings.new(@test_passage).get_badges
-      if @badges.present?
-        current_user.badges.push(@badges)
-        flash[:notice] = 'You have been assigned a new bage !'
-      end
+      redirect_to result_test_passage_path(@test_passage)
+     else
+      render :show
     end
   end
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
-
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TestsController < AuthenticatedController #ApplicationController
+class TestsController < AuthenticatedController
 
   before_action :authenticate_user!
 

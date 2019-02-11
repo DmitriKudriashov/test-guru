@@ -2,29 +2,16 @@
   <%= render 'shared/errors', resource: @badge %>
   <p>
     <%= form.label :name %><br>
-    <%= form.text_field :name, id: :badge_name %>
+    <%= form.text_field :name, id: :badge_name, class: 'form-control' %>
   </p>
   <p>
     <%= form.label :file_image %><br>
-    <%= form.text_field :file_image, id: :badge_file_image %>
-  </p>
-  <p>
-    <%= form.label :level %><br>
-    <%= form.text_field :level, id: :badge_level %>
+    <%= form.text_field :file_image, id: :badge_file_image, class: 'form-control' %>
   </p>
   <p>
     <%= form.label :rule %><br>
-    <%= form.text_field :rule, id: :badge_rule %>
+    <%= form.collection_select :rule, Badge::RULES, :first, :last, {selected: @badge.rule}, class: 'form-control' %>
   </p>
-
-<!--
-  <p>
-    <%= form.label :rule_type %>:<br>
-    <%= form.select :rule_type, options_for_select([['category', 'category'],
-                                                    ['attempt', 'attempt'],
-                                                    ['level', 'level']]) %>
-  </p>
- -->
 
   <p><%= form.submit %></p>
 <% end %>

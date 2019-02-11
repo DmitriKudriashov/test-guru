@@ -4,10 +4,9 @@
   <%= link_to 'Badges', admin_badges_path, class: 'navbar-brand'%>
 
   <span class='navbar-brand'>
-    <b> <%= t('.panel')%></b><br>
-      <%= t('.welcome', user: " #{current_user.first_and_last_name}") %>
-      <%= " ( #{ t('.email', user_email: current_user.email ) } ) "%>
-       |
+    <%= link_to t('.panel'), admin_tests_path, class: 'navbar-brand' %><br>
+    <%= t('.welcome', user: " #{current_user.first_and_last_name}") %>
+    <%= " ( #{ t('.email', user_email: current_user.email ) } ) "%> |
     <%= link_to t('.logout') , destroy_user_session_path, method: :delete, data: { confirm: t('are_you_sure') }, class: 'navbar-brand' %>
   </span>
 </nav>
