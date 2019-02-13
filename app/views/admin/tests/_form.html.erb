@@ -18,6 +18,11 @@
     <%= form.label :category_id%>:
     <%= form.collection_select :category_id, Category.all, :id, :title, prompt: t('.prompt') %>
   </p>
+
+  <p id="timer-field">
+    <%= form.label :timer %>( in seconds  )
+    <%= form.text_field :timer %>
+  </p>
   <br>
 
   <p> <%= form.submit %> </p>

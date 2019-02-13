@@ -40,7 +40,7 @@ en:
   back: "Back"
   back_to_all_tests: "Back to All Tests"
   gist_description: "The question of %{title} "
-
+  time: "Time"
 
   helpers:
     submit:

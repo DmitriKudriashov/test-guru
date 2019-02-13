@@ -26,7 +26,7 @@ class Test < ApplicationRecord
     by_category(title).order(title: :desc).pluck(:title)
   end
 
-  def self.check_hard(id)
-    hard.where(id: id)
+  def with_timer?
+    self.timer > 0
   end
 end
