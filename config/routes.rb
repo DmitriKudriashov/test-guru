@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: %i[index]
+  get '/badges_users', to: 'badges#badges_users'
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
@@ -26,6 +29,7 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
+    resources :badges
   end
 
   post '/send-feedback', to: 'application#feedback_mailer_send'

@@ -7,6 +7,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_question, on: [:create, :update]
 
+  scope :test_presence, -> (test) { where(test_id: test) }
+
   def test_passed?
     correctly_percent >= 85
   end

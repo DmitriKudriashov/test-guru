@@ -58,6 +58,7 @@ class Admin::TestsController < Admin::BaseController
   def set_tests
     @tests = Test.all
   end
+
   def find_test
     @test = Test.find(params[:id])
   end

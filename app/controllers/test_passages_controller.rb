@@ -23,8 +23,8 @@ class TestPassagesController < ApplicationController
 
   def update
     if params[:answer_ids].nil?
-       flash_message = { alert: 'You should make a choice answer!' }
-       redirect_to @test_passage, flash_message
+      flash_message = { alert: 'You should make a choice answer!' }
+      redirect_to @test_passage, flash_message
     else
       update!
     end
@@ -36,8 +36,10 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
     if @test_passage.completed?
       TestsMailer.completed_test(@test_passage).deliver_now
+      BadgesGiving.new(@test_passage).assign_badges_to_user
+
       redirect_to result_test_passage_path(@test_passage)
-    else
+     else
       render :show
     end
   end
@@ -45,5 +47,4 @@ class TestPassagesController < ApplicationController
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
-
 end

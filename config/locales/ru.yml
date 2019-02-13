@@ -21,11 +21,6 @@ ru:
       answer:
         create: "Создать новый ответ"
         update: "Обновить ответ "
-      devise:
-        sessions:
-          new: "Ввод"
-        registrations:
-          new:
 
     select:
       # Default value for :prompt => true in FormOptionsHelper - from Rails source code.
@@ -47,7 +42,7 @@ ru:
       answer:
         body: "Ответ"
         correct: "Верный"
-      devise:
+
   devise:
     registrations:
       new:
@@ -83,7 +78,7 @@ ru:
 
     nav:
       test_guru: "Тест Гуру"
-      admin_test_guru: "ТестГуру (для Админа)"
+      admin_test_guru: "Панель Администратора"
       hello: "Добро пожаловать, гуру %{user} "
       logout: "Выход"
       login: "Вход"

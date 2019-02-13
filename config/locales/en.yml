@@ -41,6 +41,7 @@ en:
   back_to_all_tests: "Back to All Tests"
   gist_description: "The question of %{title} "
 
+
   helpers:
     submit:
       test:
@@ -105,7 +106,7 @@ en:
         other: "%{count} errors detected"
     nav:
       test_guru: "Test Guru"
-      admin_test_guru: "TestGuru (for Admin)"
+      admin_test_guru: "Admin panel"
       hello: "Hello, guru %{user} "
       logout: "Logout"
       login: "Login"
