@@ -9,6 +9,7 @@ ru:
   back: "Возврат"
   back_to_all_tests: "Возврат ко всем тестам"
   gist_description: "Вопрос по теме: %{title}"
+  time: "Время"
 
   helpers:
     submit:

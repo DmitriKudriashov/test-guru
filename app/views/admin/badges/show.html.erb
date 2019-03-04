@@ -2,10 +2,10 @@
  Badge: <%= @badge.name %>
 </p>
 <p>
- File: <%= @badge.file_image %>
+  Rule: <%= @badge.rule %>
 </p>
 <p>
-  Rule: <%= @badge.rule %>
+  <%= badge_image(@badge) %>
 </p>
 
 <%= link_to t('edit'), edit_admin_badge_path(@badge) %> |

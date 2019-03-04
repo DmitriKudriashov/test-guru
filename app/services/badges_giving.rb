@@ -6,10 +6,8 @@ class BadgesGiving
   end
 
   def assign_badges_to_user
-    return unless @test_passage.test_passed?
-
     @badges = badges_to_user
-    return if @badges.presence.nil?
+    return if @badges.blank?
 
     @badges.each do |badge|
       @user.badges.push(badge.last)
@@ -34,15 +32,16 @@ class BadgesGiving
 
 
   def check_first_try
-    TestPassage.all.where(["test_id = ? and user_id = ?", @test_passage.test_id , @test_passage.user_id ]).count() == 1
+    TestPassage.where(["test_id = ? and user_id = ?", @test_passage.test_id , @test_passage.user_id ]).count() == 1
   end
 
   def check_backend
-    @test_passage.test.category.title == 'Backend'
+    #@test_passage.test.category.title == 'Backend'
+    @test_passage.test.category.title.include?('Backend') # recomended: BubuntuClu 11/02/19 20:07
   end
 
   def check_test_hard
-    Test.check_hard(@test_passage.test_id).count() > 0
+    Test.hard.where(id: @test_passage.test_id).count() > 0
   end
 
 

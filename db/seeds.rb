@@ -4,12 +4,17 @@ Answer.delete_all
 Question.delete_all
 Test.delete_all
 Category.delete_all
-# User.delete_all
+BadgesUser.delete_all
+Badge.delete_all
 
 # 1) users
 # users = User.create([{ first_name: 'Test', last_name: 'Guruproject',
 #                        login: 'testguruproject@gmail.com', password: 'testguru', email: 'testguruproject@gmail.com', type: 'Admin' }])
 
+unless User.where(email: 'testguruproject@gmail.com').presence
+  User.create([{first_name: "Test", last_name: "Guruproject", login: nil, email: "testguruproject@gmail.com",
+                encrypted_password: "$2a$11$1Kirp98CFwwyb5SiDI3YJ.35RnJhF8q9EIUxSjskfZtR30/esHp76", type: 'Admin'}])
+end
 admin_id = User.all.last.id
 
 # 2) category
@@ -22,10 +27,10 @@ categories = Category.create([{ title: 'Backend' },
                               { title: 'Category7' }])
 
 # 3) tests
-tests = Test.create([{ title: 'Ruby', level: 1, category: categories[0], author_id: admin_id },
-                     { title: 'Java', level: 1, category: categories[1], author_id: admin_id },
-                     { title: 'HTML', level: 2, category: categories[0], author_id: admin_id },
-                     { title: 'Test (for debug project)', level: 2, category: categories[2], author_id: admin_id },
+tests = Test.create([{ title: 'Ruby', level: 1, category: categories[0], author_id: admin_id, timer: 6 },
+                     { title: 'Java', level: 1, category: categories[1], author_id: admin_id, timer: 100  },
+                     { title: 'HTML', level: 2, category: categories[0], author_id: admin_id, timer: 10  },
+                     { title: 'Test (for debug project)', level: 2, category: categories[2], author_id: admin_id, timer: 15 },
                      { title: 'Test5', level: 3, category: categories[3], author_id: admin_id },
                      { title: 'Test6', level: 3, category: categories[4], author_id: admin_id },
                      { title: 'Test7', level: 4, category: categories[5], author_id: admin_id },
@@ -106,3 +111,7 @@ Answer.create([{ body: 'Ruby on Rails', question: questions[0], correct: true },
 
                { body: 'Answer 16.1', question: questions[15], correct: false },
                { body: 'Answer 16.2 correct', question: questions[15], correct: true }])
+# 6) badges
+Badge.create([{ name: "Badge Backend", rule: "all_backend", file_image: "badge Backend.png"},
+              { name: "Hard level", rule: "all_for_hard", file_image: "badge_hard.png"},
+              { name: "On First Try", rule: "on_first_try", file_image: "badge on firrst try.png"} ])

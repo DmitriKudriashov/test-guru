@@ -7,7 +7,9 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_question, on: [:create, :update]
 
-  scope :test_presence, -> (test) { where(test_id: test) }
+  def time_to_left
+    (self.test.timer - (Time.current - self.created_at).seconds ).to_i
+  end
 
   def test_passed?
     correctly_percent >= 85

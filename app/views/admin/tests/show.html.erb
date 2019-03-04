@@ -5,7 +5,7 @@
 </p>
 
 <p>
-  <%= t('.category')  %>:
+  <%= t('.category')  %>
   <%= @test.category.title %>
 </p>
 
@@ -14,11 +14,17 @@
   <%= @test.author.email %>
 </p>
 
+<p>
+  Timer ( in seconds):
+  <%=  @test.timer %>
+</p>
+
 <%= link_to t('.edit_test') , edit_admin_test_path(@test) %>
 <br>
 <p class="style_gray">
   <%= link_to t('back_to_all_tests'), admin_tests_path %>
 </p>
+
 <br>
 <h3><%= t('questions') %></h3>
  <%= render 'admin/questions/list', test: @test %>

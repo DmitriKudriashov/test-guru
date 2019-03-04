@@ -1,4 +1,9 @@
-<h2>Pass the <%= @test_passage.test.title %> Test</h2><br>
+<h2>Pass the <%= @test_passage.test.title %> Test </h2><br>
+<% if @test_passage.test.with_timer? %>
+  <div class="timer" data-time-to-left=<%= "#{@test_passage.test.timer}"  %> >
+    <%= content_tag :span, nil, class: 'time_to_left' %>
+  </div>
+<% end %>
 
 <div class="progress-block">
   <%= content_tag :div, '', class: 'progress-bar',
@@ -20,3 +25,5 @@
 <p class="style_gray">
   <%= link_to 'Back to All Tests', tests_path %>
 </p>
+
+
